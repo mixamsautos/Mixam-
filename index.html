@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Your Car Company - Inventory</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+</head>
+<body>
+  <header>
+    <h1>Your Car Company</h1>
+    <p>Quality Used & New Vehicles – Great Deals Every Day</p>
+  </header>
+
+  <main>
+    <section class="filters">
+      <h2>Our Inventory</h2>
+      <div class="filter-controls">
+        <label>Sort by:</label>
+        <select id="sortSelect">
+          <option value="price-asc">Price: Low to High</option>
+          <option value="price-desc">Price: High to Low</option>
+          <option value="year-desc">Newest First</option>
+        </select>
+      </div>
+    </section>
+
+    <section class="car-grid" id="carGrid">
+      <!-- Cars will be added here via JS or static -->
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Your Car Company. All rights reserved. | Contact: your@email.com | WhatsApp: +1234567890</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
