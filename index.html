@@ -3,36 +3,76 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Your Car Company - Inventory</title>
+  <title>Mixam's Autos - Used Cars for Sale</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
-  <header>
-    <h1>Your Car Company</h1>
-    <p>Quality Used & New Vehicles – Great Deals Every Day</p>
+  <!-- Top Navigation (CarGurus style) -->
+  <header class="top-nav">
+    <div class="nav-container">
+      <div class="logo">
+        <span class="red">Mixam</span><span class="blue">’s</span> Autos
+      </div>
+      <nav>
+        <a href="#" class="nav-link active">Shop</a>
+        <a href="sell.html" class="nav-link">Sell</a>
+        <a href="#" class="nav-link">Discover</a>
+      </nav>
+      <div class="nav-right">
+        <a href="mailto:mixam1autos@outlook.com" class="contact-btn">Contact Us</a>
+      </div>
+    </div>
   </header>
 
   <main>
-    <section class="filters">
-      <h2>Our Inventory</h2>
-      <div class="filter-controls">
-        <label>Sort by:</label>
-        <select id="sortSelect">
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="year-desc">Newest First</option>
-        </select>
+    <!-- Hero Search Bar -->
+    <section class="hero">
+      <div class="hero-content">
+        <h1>Used Cars for Sale near Dallas, TX</h1>
+        <div class="search-bar">
+          <input type="text" id="searchInput" placeholder="Describe the car you would like (e.g. BMW 5 Series)" />
+          <button onclick="filterCars()">Search</button>
+        </div>
+        <div class="filters-row">
+          <button class="filter-btn" onclick="toggleFilters()">Filters</button>
+          <select id="sortSelect" onchange="sortCars()">
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="year-desc">Newest First</option>
+          </select>
+        </div>
       </div>
     </section>
 
-    <section class="car-grid" id="carGrid">
-      <!-- Cars will be added here via JS or static -->
+    <!-- Results Header -->
+    <section class="results-header">
+      <p><span id="resultCount">0</span> results</p>
+      <div class="save-search">
+        <button onclick="alert('Saved search! (demo)')">Save search</button>
+      </div>
     </section>
+
+    <!-- Car Grid -->
+    <section class="car-grid" id="carGrid"></section>
   </main>
 
+  <!-- Car Detail Modal -->
+  <div id="carModal" class="modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <img id="modalImg" src="" alt="Car">
+      <div id="thumbnails" class="thumbnails"></div>
+      <h2 id="modalTitle"></h2>
+      <div id="modalFullDesc" class="modal-desc"></div>
+      <div class="modal-actions">
+        <a id="modalEmail" href="#" class="btn btn-primary">Contact Dealer</a>
+      </div>
+    </div>
+  </div>
+
   <footer>
-    <p>&copy; 2026 Your Car Company. All rights reserved. | Contact: your@email.com | WhatsApp: +1234567890</p>
+    <p>&copy; 2026 Mixam's Autos. All rights reserved. | Dallas, TX</p>
   </footer>
 
   <script src="script.js"></script>
