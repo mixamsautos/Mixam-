@@ -5,6 +5,68 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Apply for Financing - Mixam's Autos</title>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    .financing-page {
+      max-width: 620px;
+      margin: 40px auto;
+      padding: 40px 20px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      color: #0B1F3B;
+      margin-bottom: 10px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #6B7280;
+      margin-bottom: 40px;
+    }
+    .form-group {
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #1C1C1C;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 14px;
+      border: 1px solid #D1D5DB;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    .btn {
+      width: 100%;
+      padding: 16px;
+      background: #2D6CDF;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+      margin-top: 20px;
+    }
+    .btn:hover {
+      background: #1E4DB7;
+    }
+    .note {
+      text-align: center;
+      font-size: 14px;
+      color: #6B7280;
+      margin-top: 30px;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -14,44 +76,59 @@
   </header>
 
   <main class="financing-page">
-    <div class="container">
-      <h1>Apply for Financing</h1>
-      <form id="financeForm">
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" required>
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" required>
-        </div>
-        <div class="form-group">
-          <label>Phone</label>
-          <input type="tel" required>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" required>
-        </div>
-        <div class="form-group">
-          <label>Monthly Budget</label>
-          <input type="number" placeholder="$400">
-        </div>
-        <div class="form-group">
-          <label>Down Payment</label>
-          <input type="number" placeholder="$1500">
-        </div>
-        <button type="submit" class="btn btn-primary">Submit Application</button>
-      </form>
-    </div>
+    <h1>Apply for Financing</h1>
+    <p class="subtitle">Fill out the form below and we will contact you with personalized options.</p>
+
+    <!-- Formspree endpoint - replace YOUR_EMAIL with mixam1autos@outlook.com -->
+    <form action="https://formspree.io/f/xYOUR_CODE_HERE" method="POST">
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" name="first_name" required>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" name="last_name" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="_replyto" required>
+      </div>
+      <div class="form-group">
+        <label>Monthly Budget ($)</label>
+        <input type="number" name="monthly_budget" placeholder="e.g. 400">
+      </div>
+      <div class="form-group">
+        <label>Down Payment ($)</label>
+        <input type="number" name="down_payment" placeholder="e.g. 1500">
+      </div>
+      <div class="form-group">
+        <label>Employment Status</label>
+        <select name="employment_status">
+          <option value="">Select...</option>
+          <option value="Full-time">Full-time Employed</option>
+          <option value="Part-time">Part-time</option>
+          <option value="Self-employed">Self-employed</option>
+          <option value="Retired">Retired</option>
+          <option value="Unemployed">Unemployed</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label>Additional Notes</label>
+        <textarea name="notes" rows="4" placeholder="Any details about the vehicle or special requests..."></textarea>
+      </div>
+
+      <button type="submit" class="btn">Submit Financing Application</button>
+    </form>
+
+    <p class="note">We will contact you within 1 business day.</p>
   </main>
 
-  <script>
-    document.getElementById('financeForm').addEventListener('submit', function(e) {
-      e.preventDefault();
-      alert("Thank you! Your financing application has been received. We will contact you soon.");
-      this.reset();
-    });
-  </script>
+  <footer>
+    <p>&copy; 2026 Mixam's Autos. All rights reserved.</p>
+  </footer>
 </body>
 </html>
