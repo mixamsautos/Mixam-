@@ -202,12 +202,12 @@
         </label>
       </div>
 
-      <!-- Continue Button (shows payment section after click) -->
+      <!-- Continue Button -->
       <button type="button" id="continueBtn" class="btn btn-primary">
         Continue
       </button>
 
-      <!-- Payment Section (hidden until Continue is clicked) -->
+      <!-- Payment Section (shown after Continue) -->
       <div id="paymentSection" class="fee-box" style="display: none;">
         <div class="fee-amount">$50</div>
         <p><strong>Reservation Fee</strong></p>
@@ -240,9 +240,9 @@
         return;
       }
 
-      // Show payment section
+      // Show payment section and hide Continue button
       document.getElementById('paymentSection').style.display = 'block';
-      this.style.display = 'none'; // hide Continue button
+      this.style.display = 'none';
     });
   </script>
 </body>
