@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Apply for Financing - Mixam's Autos</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">Mixam's Autos</div>
+    </div>
+  </header>
+
+  <main class="financing-page">
+    <div class="container">
+      <h1>Apply for Financing</h1>
+      <form id="financeForm">
+        <div class="form-group">
+          <label>First Name</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label>Last Name</label>
+          <input type="text" required>
+        </div>
+        <div class="form-group">
+          <label>Phone</label>
+          <input type="tel" required>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" required>
+        </div>
+        <div class="form-group">
+          <label>Monthly Budget</label>
+          <input type="number" placeholder="$400">
+        </div>
+        <div class="form-group">
+          <label>Down Payment</label>
+          <input type="number" placeholder="$1500">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit Application</button>
+      </form>
+    </div>
+  </main>
+
+  <script>
+    document.getElementById('financeForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert("Thank you! Your financing application has been received. We will contact you soon.");
+      this.reset();
+    });
+  </script>
+</body>
+</html>
