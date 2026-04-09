@@ -52,6 +52,7 @@
       border-radius: 12px;
       margin: 30px 0;
       text-align: center;
+      display: none; /* hidden until Continue is clicked */
     }
     .fee-amount {
       font-size: 32px;
@@ -116,8 +117,7 @@
     <h1>Reserve This Vehicle</h1>
     <p class="subtitle">Secure this vehicle today with a $50 refundable reservation fee.</p>
 
-    <!-- YOUR REAL FORMSPREE ENDPOINT -->
-    <form action="https://formspree.io/f/xqegvzev" method="POST">
+    <form id="reservationForm" action="https://formspree.io/f/xqegvzev" method="POST">
 
       <!-- Customer Information -->
       <div class="form-group">
@@ -188,41 +188,62 @@
         <textarea name="message" placeholder="Any questions or preferred time?"></textarea>
       </div>
 
-      <!-- Reservation Fee Section -->
-      <div class="fee-box">
-        <div class="fee-amount">$50</div>
-        <p><strong>Reservation Fee</strong></p>
-        <p>The $50 reservation fee holds this vehicle for you and can be applied toward the purchase price. It is fully refundable if you decide not to proceed.</p>
-      </div>
-
       <!-- Agreements -->
       <div class="checkbox-group">
         <label>
-          <input type="checkbox" name="agreement1" required>
+          <input type="checkbox" id="agreement1" required>
           I understand the reservation fee is required to hold the vehicle.
         </label>
       </div>
       <div class="checkbox-group">
         <label>
-          <input type="checkbox" name="agreement2" required>
+          <input type="checkbox" id="agreement2" required>
           I agree to be contacted about this reservation.
         </label>
       </div>
 
-      <!-- Buttons -->
-      <a href="https://flutterwave.com/pay/3pxmnfegosk0" target="_blank" class="btn btn-primary">
-        Pay $50 Reservation Fee
-      </a>
-      <button type="submit" class="btn btn-secondary">
-        I Have Paid – Submit Reservation
+      <!-- Continue Button (shows payment section after click) -->
+      <button type="button" id="continueBtn" class="btn btn-primary">
+        Continue
       </button>
+
+      <!-- Payment Section (hidden until Continue is clicked) -->
+      <div id="paymentSection" class="fee-box" style="display: none;">
+        <div class="fee-amount">$50</div>
+        <p><strong>Reservation Fee</strong></p>
+        <p>The $50 reservation fee holds this vehicle for you and can be applied toward the purchase price. It is fully refundable if you decide not to proceed.</p>
+
+        <a href="https://flutterwave.com/pay/3pxmnfegosk0" target="_blank" class="btn btn-primary" style="margin-top: 15px;">
+          Pay $50 Reservation Fee
+        </a>
+
+        <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">
+          I Have Paid – Submit Reservation
+        </button>
+      </div>
     </form>
 
-    <p class="note">Reservation received! Our team will contact you shortly to confirm details.</p>
+    <p class="note" id="successNote" style="display: none;">Reservation received! Our team will contact you shortly to confirm details.</p>
   </main>
 
   <footer>
     <p>&copy; 2025 Mixam's Autos. All rights reserved.</p>
   </footer>
+
+  <script>
+    document.getElementById('continueBtn').addEventListener('click', function() {
+      const agreement1 = document.getElementById('agreement1').checked;
+      const agreement2 = document.getElementById('agreement2').checked;
+
+      if (!agreement1 || !agreement2) {
+        alert("Please check both agreement boxes before continuing.");
+        return;
+      }
+
+      // Show payment section
+      document.getElementById('paymentSection').style.display = 'block';
+      this.style.display = 'none'; // hide Continue button
+    });
+  </script>
 </body>
 </html>
