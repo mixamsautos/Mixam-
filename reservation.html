@@ -5,6 +5,108 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Reserve Vehicle - Mixam's Autos</title>
   <link rel="stylesheet" href="style.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <style>
+    .reservation-page {
+      max-width: 680px;
+      margin: 40px auto;
+      padding: 40px 30px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+    }
+    h1 {
+      text-align: center;
+      color: #0B1F3B;
+      margin-bottom: 8px;
+    }
+    .subtitle {
+      text-align: center;
+      color: #6B7280;
+      margin-bottom: 40px;
+      font-size: 17px;
+    }
+    .form-group {
+      margin-bottom: 22px;
+    }
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+      color: #1C1C1C;
+    }
+    input, select, textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 1px solid #D1D5DB;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+    textarea {
+      height: 110px;
+      resize: vertical;
+    }
+    .fee-box {
+      background: #F7F8FA;
+      padding: 20px;
+      border-radius: 10px;
+      margin: 30px 0;
+      text-align: center;
+    }
+    .fee-amount {
+      font-size: 28px;
+      font-weight: 700;
+      color: #0B1F3B;
+    }
+    .checkbox-group {
+      margin: 25px 0;
+      padding: 15px;
+      background: #F7F8FA;
+      border-radius: 8px;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 15px;
+      line-height: 1.5;
+      cursor: pointer;
+    }
+    .checkbox-group input[type="checkbox"] {
+      margin-top: 3px;
+      accent-color: #2D6CDF;
+      width: 18px;
+      height: 18px;
+    }
+    .btn {
+      width: 100%;
+      padding: 16px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 8px;
+      font-size: 17px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+    .btn-primary {
+      background: #2D6CDF;
+      color: white;
+    }
+    .btn-primary:hover {
+      background: #1E4DB7;
+    }
+    .btn-secondary {
+      background: #F3F4F6;
+      color: #1C1C1C;
+      border: 1px solid #D1D5DB;
+    }
+    .note {
+      text-align: center;
+      font-size: 14px;
+      color: #6B7280;
+      margin-top: 20px;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
@@ -13,30 +115,121 @@
     </div>
   </header>
 
-  <main class="financing-page">
-    <div class="container">
-      <h1>Reserve This Vehicle</h1>
-      <p>Pay a refundable $50 reservation fee to hold the vehicle.</p>
-      <form>
-        <div class="form-group">
-          <label>First Name</label>
-          <input type="text" required>
-        </div>
-        <div class="form-group">
-          <label>Last Name</label>
-          <input type="text" required>
-        </div>
-        <div class="form-group">
-          <label>Email</label>
-          <input type="email" required>
-        </div>
-        <div class="form-group">
-          <label>Phone</label>
-          <input type="tel" required>
-        </div>
-        <button type="button" onclick="alert('Redirecting to payment... (use your Flutterwave link here)')" class="btn btn-primary">Pay $50 Reservation Fee</button>
-      </form>
-    </div>
+  <main class="reservation-page">
+    <h1>Reserve This Vehicle</h1>
+    <p class="subtitle">Secure this vehicle today with a $50 refundable reservation fee.</p>
+
+    <!-- Formspree - Replace xYOUR_CODE_HERE with your actual Formspree endpoint -->
+    <form action="https://formspree.io/f/xYOUR_CODE_HERE" method="POST">
+
+      <!-- Customer Information -->
+      <div class="form-group">
+        <label>First Name</label>
+        <input type="text" name="first_name" required>
+      </div>
+      <div class="form-group">
+        <label>Last Name</label>
+        <input type="text" name="last_name" required>
+      </div>
+      <div class="form-group">
+        <label>Email Address</label>
+        <input type="email" name="_replyto" required>
+      </div>
+      <div class="form-group">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" required>
+      </div>
+      <div class="form-group">
+        <label>WhatsApp Number (optional)</label>
+        <input type="tel" name="whatsapp">
+      </div>
+
+      <!-- Address Information -->
+      <div class="form-group">
+        <label>Street Address</label>
+        <input type="text" name="street_address">
+      </div>
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" name="city">
+      </div>
+      <div class="form-group">
+        <label>State</label>
+        <input type="text" name="state">
+      </div>
+      <div class="form-group">
+        <label>ZIP Code</label>
+        <input type="text" name="zip_code">
+      </div>
+
+      <!-- Appointment Details -->
+      <div class="form-group">
+        <label>Preferred Appointment Date</label>
+        <input type="date" name="appointment_date">
+      </div>
+      <div class="form-group">
+        <label>Preferred Appointment Time</label>
+        <select name="appointment_time">
+          <option value="">Select...</option>
+          <option value="Morning">Morning (9am - 12pm)</option>
+          <option value="Afternoon">Afternoon (12pm - 4pm)</option>
+          <option value="Evening">Evening (4pm - 7pm)</option>
+        </select>
+      </div>
+
+      <!-- Preferred Contact Method -->
+      <div class="form-group">
+        <label>Preferred Contact Method</label>
+        <select name="contact_method">
+          <option value="">Select...</option>
+          <option value="Phone call">Phone call</option>
+          <option value="SMS text">SMS text</option>
+          <option value="WhatsApp">WhatsApp</option>
+          <option value="Email">Email</option>
+        </select>
+      </div>
+
+      <!-- Message -->
+      <div class="form-group">
+        <label>Additional Message or Special Request (optional)</label>
+        <textarea name="message" placeholder="Any questions or preferred time?"></textarea>
+      </div>
+
+      <!-- Reservation Fee Section -->
+      <div class="fee-box">
+        <div class="fee-amount">$50</div>
+        <p><strong>Reservation Fee</strong></p>
+        <p>The $50 reservation fee holds this vehicle for you and can be applied toward the purchase price. It is fully refundable if you decide not to proceed.</p>
+      </div>
+
+      <!-- Agreement Checkboxes -->
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" name="agreement1" required>
+          I understand the reservation fee is required to hold the vehicle.
+        </label>
+      </div>
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" name="agreement2" required>
+          I agree to be contacted about this reservation.
+        </label>
+      </div>
+
+      <!-- Buttons -->
+      <button type="button" onclick="alert('Redirecting to payment... (add your Flutterwave link here)')" class="btn btn-primary">
+        Pay $50 Reservation Fee
+      </button>
+      <button type="submit" class="btn btn-secondary">
+        Submit Reservation
+      </button>
+    </form>
+
+    <p class="note">Our team will contact you shortly to confirm details.</p>
   </main>
+
+  <footer>
+    <p>&copy; 2025 Mixam's Autos. All rights reserved.</p>
+  </footer>
 </body>
 </html>
