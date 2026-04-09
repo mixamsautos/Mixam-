@@ -48,13 +48,13 @@
     }
     .fee-box {
       background: #F7F8FA;
-      padding: 20px;
-      border-radius: 10px;
+      padding: 25px;
+      border-radius: 12px;
       margin: 30px 0;
       text-align: center;
     }
     .fee-amount {
-      font-size: 28px;
+      font-size: 32px;
       font-weight: 700;
       color: #0B1F3B;
     }
@@ -116,7 +116,7 @@
     <h1>Reserve This Vehicle</h1>
     <p class="subtitle">Secure this vehicle today with a $50 refundable reservation fee.</p>
 
-    <!-- YOUR REAL FORMSPREE LINK IS ALREADY INSERTED -->
+    <!-- YOUR REAL FORMSPREE ENDPOINT -->
     <form action="https://formspree.io/f/xqegvzev" method="POST">
 
       <!-- Customer Information -->
@@ -188,7 +188,7 @@
         <textarea name="message" placeholder="Any questions or preferred time?"></textarea>
       </div>
 
-      <!-- Reservation Fee -->
+      <!-- Reservation Fee Section -->
       <div class="fee-box">
         <div class="fee-amount">$50</div>
         <p><strong>Reservation Fee</strong></p>
@@ -210,11 +210,11 @@
       </div>
 
       <!-- Buttons -->
-      <button type="button" onclick="alert('Redirecting to payment... (add your Flutterwave link here)')" class="btn btn-primary">
+      <a href="https://flutterwave.com/pay/3pxmnfegosk0" target="_blank" class="btn btn-primary">
         Pay $50 Reservation Fee
-      </button>
+      </a>
       <button type="submit" class="btn btn-secondary">
-        Submit Reservation
+        I Have Paid – Submit Reservation
       </button>
     </form>
 
