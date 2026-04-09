@@ -3,86 +3,40 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mixam's Autos | Premium Used Cars Dallas, TX</title>
+  <title>Mixam's Autos</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 </head>
 <body>
 
-  <!-- Sticky Header -->
+  <!-- Header -->
   <header class="header">
     <div class="header-container">
       <div class="logo">Mixam's Autos</div>
-      <nav class="nav-menu">
-        <a href="#home">Home</a>
+      <nav>
         <a href="#inventory">Inventory</a>
-        <a href="#financing">Financing</a>
-        <a href="#sell">Sell / Trade</a>
-        <a href="#reservation">Reserve</a>
-        <a href="#contact">Contact</a>
+        <a href="financing.html">Financing</a>
+        <a href="reservation.html">Reserve</a>
       </nav>
-      <a href="#inventory" class="btn btn-primary">Browse Cars</a>
     </div>
   </header>
 
   <!-- Hero -->
-  <section id="home" class="hero">
+  <section class="hero">
     <div class="hero-content">
       <h1>Drive Your Dream Car Today</h1>
       <p>Quality Used Vehicles • Easy Financing • Nationwide Delivery</p>
       <div class="hero-buttons">
         <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
-        <a href="#financing" class="btn btn-secondary">Apply for Financing</a>
+        <a href="financing.html" class="btn btn-secondary">Apply for Financing</a>
       </div>
     </div>
   </section>
 
-  <!-- Featured Vehicles -->
-  <section class="section" id="featured">
-    <div class="container">
-      <h2>Featured Vehicles</h2>
-      <div class="car-grid" id="featuredGrid"></div>
-    </div>
-  </section>
-
-  <!-- Why Choose Us -->
-  <section class="section why-choose">
-    <div class="container">
-      <h2>Why Choose Mixam's Autos</h2>
-      <div class="why-grid">
-        <div class="why-card">
-          <i class="fas fa-car"></i>
-          <h3>Clean Title Vehicles</h3>
-        </div>
-        <div class="why-card">
-          <i class="fas fa-handshake"></i>
-          <h3>Flexible Financing</h3>
-        </div>
-        <div class="why-card">
-          <i class="fas fa-truck"></i>
-          <h3>Nationwide Delivery</h3>
-        </div>
-        <div class="why-card">
-          <i class="fas fa-shield-alt"></i>
-          <h3>Quality Inspected</h3>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Full Inventory -->
+  <!-- Inventory -->
   <section id="inventory" class="section">
     <div class="container">
       <h2>Our Inventory</h2>
-      <div class="filters">
-        <input type="text" id="searchInput" placeholder="Search by make, model or year..." onkeyup="filterCars()">
-        <select id="sortSelect" onchange="sortCars()">
-          <option value="price-asc">Price: Low to High</option>
-          <option value="price-desc">Price: High to Low</option>
-          <option value="year-desc">Newest First</option>
-        </select>
-      </div>
       <div class="car-grid" id="carGrid"></div>
     </div>
   </section>
@@ -90,23 +44,11 @@
   <!-- Footer -->
   <footer>
     <div class="container">
-      <div class="footer-grid">
-        <div>
-          <h3>Mixam's Autos</h3>
-          <p>Dallas, Texas</p>
-        </div>
-        <div>
-          <h4>Contact</h4>
-          <p><a href="https://wa.me/13512301881">WhatsApp: +1 (351) 230-1881</a></p>
-          <p><a href="tel:+18167549276">Text: +1 (816) 754-9276</a></p>
-          <p><a href="mailto:mixam1autos@outlook.com">mixam1autos@outlook.com</a></p>
-        </div>
-      </div>
-      <p class="copyright">&copy; 2025 Mixam's Autos. All rights reserved.</p>
+      <p>&copy; 2026 Mixam's Autos. All rights reserved.</p>
     </div>
   </footer>
 
-  <!-- Vehicle Modal -->
+  <!-- Modal -->
   <div id="carModal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
@@ -116,7 +58,7 @@
       <div id="modalFullDesc" class="modal-desc"></div>
       <div class="modal-buttons">
         <a id="modalEmail" href="#" class="btn btn-primary">Contact Dealer</a>
-        <button onclick="reserveVehicle()" class="btn btn-secondary">Reserve Vehicle ($50)</button>
+        <a href="reservation.html" class="btn btn-secondary">Reserve Vehicle</a>
       </div>
     </div>
   </div>
