@@ -8,25 +8,26 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     .financing-page {
-      max-width: 620px;
+      max-width: 680px;
       margin: 40px auto;
-      padding: 40px 20px;
+      padding: 40px 30px;
       background: white;
       border-radius: 12px;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 40px rgba(0,0,0,0.1);
     }
     h1 {
       text-align: center;
       color: #0B1F3B;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .subtitle {
       text-align: center;
       color: #6B7280;
       margin-bottom: 40px;
+      font-size: 17px;
     }
     .form-group {
-      margin-bottom: 20px;
+      margin-bottom: 22px;
     }
     label {
       display: block;
@@ -36,14 +37,23 @@
     }
     input, select, textarea {
       width: 100%;
-      padding: 14px;
+      padding: 14px 16px;
       border: 1px solid #D1D5DB;
       border-radius: 8px;
       font-size: 16px;
     }
     textarea {
-      height: 120px;
+      height: 110px;
       resize: vertical;
+    }
+    .checkbox-group {
+      margin: 25px 0;
+    }
+    .checkbox-group label {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 15px;
     }
     .btn {
       width: 100%;
@@ -55,7 +65,7 @@
       font-size: 17px;
       font-weight: 600;
       cursor: pointer;
-      margin-top: 20px;
+      margin-top: 10px;
     }
     .btn:hover {
       background: #1E4DB7;
@@ -77,10 +87,12 @@
 
   <main class="financing-page">
     <h1>Apply for Financing</h1>
-    <p class="subtitle">Fill out the form below and we will contact you with personalized options.</p>
+    <p class="subtitle">Please fill out the form below. We will contact you with personalized options shortly.</p>
 
-    <!-- Formspree endpoint - replace YOUR_EMAIL with mixam1autos@outlook.com -->
+    <!-- Formspree - Replace xYOUR_CODE_HERE with your actual Formspree endpoint -->
     <form action="https://formspree.io/f/xYOUR_CODE_HERE" method="POST">
+
+      <!-- 1. Personal Information -->
       <div class="form-group">
         <label>First Name</label>
         <input type="text" name="first_name" required>
@@ -90,45 +102,120 @@
         <input type="text" name="last_name" required>
       </div>
       <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" name="phone" required>
+        <label>Date of Birth</label>
+        <input type="date" name="date_of_birth" required>
       </div>
       <div class="form-group">
         <label>Email Address</label>
         <input type="email" name="_replyto" required>
       </div>
       <div class="form-group">
-        <label>Monthly Budget ($)</label>
-        <input type="number" name="monthly_budget" placeholder="e.g. 400">
+        <label>Phone Number</label>
+        <input type="tel" name="phone" required>
+      </div>
+
+      <!-- 2. Address Information -->
+      <div class="form-group">
+        <label>Street Address</label>
+        <input type="text" name="street_address" required>
       </div>
       <div class="form-group">
-        <label>Down Payment ($)</label>
-        <input type="number" name="down_payment" placeholder="e.g. 1500">
+        <label>City</label>
+        <input type="text" name="city" required>
       </div>
+      <div class="form-group">
+        <label>State</label>
+        <input type="text" name="state" required>
+      </div>
+      <div class="form-group">
+        <label>ZIP Code</label>
+        <input type="text" name="zip_code" required>
+      </div>
+      <div class="form-group">
+        <label>Time at Current Address (years/months)</label>
+        <input type="text" name="time_at_address" placeholder="e.g. 2 years 6 months">
+      </div>
+
+      <!-- 3. Employment Information -->
       <div class="form-group">
         <label>Employment Status</label>
-        <select name="employment_status">
+        <select name="employment_status" required>
           <option value="">Select...</option>
-          <option value="Full-time">Full-time Employed</option>
-          <option value="Part-time">Part-time</option>
+          <option value="Full-time">Employed full-time</option>
+          <option value="Part-time">Employed part-time</option>
           <option value="Self-employed">Self-employed</option>
+          <option value="Business owner">Business owner</option>
           <option value="Retired">Retired</option>
+          <option value="Student">Student</option>
           <option value="Unemployed">Unemployed</option>
         </select>
       </div>
       <div class="form-group">
-        <label>Additional Notes</label>
-        <textarea name="notes" rows="4" placeholder="Any details about the vehicle or special requests..."></textarea>
+        <label>Employer Name</label>
+        <input type="text" name="employer_name">
+      </div>
+      <div class="form-group">
+        <label>Job Title</label>
+        <input type="text" name="job_title">
+      </div>
+      <div class="form-group">
+        <label>Time at Job</label>
+        <input type="text" name="time_at_job" placeholder="e.g. 3 years">
+      </div>
+      <div class="form-group">
+        <label>Monthly Income (before tax)</label>
+        <input type="number" name="monthly_income" placeholder="e.g. 4500">
       </div>
 
-      <button type="submit" class="btn">Submit Financing Application</button>
+      <!-- 4. Finance Preferences -->
+      <div class="form-group">
+        <label>Desired Monthly Payment Budget ($)</label>
+        <input type="number" name="monthly_budget" placeholder="e.g. 400">
+      </div>
+      <div class="form-group">
+        <label>Down Payment Amount ($)</label>
+        <input type="number" name="down_payment" placeholder="e.g. 1500">
+      </div>
+      <div class="form-group">
+        <label>Desired Loan Term</label>
+        <select name="loan_term">
+          <option value="24">24 months</option>
+          <option value="36">36 months</option>
+          <option value="48" selected>48 months</option>
+          <option value="60">60 months</option>
+          <option value="72">72 months</option>
+        </select>
+      </div>
+
+      <!-- 5. Credit Profile (Optional) -->
+      <div class="form-group">
+        <label>Credit Score Range (optional)</label>
+        <select name="credit_score">
+          <option value="">Select...</option>
+          <option value="Excellent">Excellent (720+)</option>
+          <option value="Good">Good (660–719)</option>
+          <option value="Fair">Fair (600–659)</option>
+          <option value="Poor">Poor (below 600)</option>
+          <option value="Not sure">Not sure</option>
+        </select>
+      </div>
+
+      <!-- Agreement -->
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" name="agreement" required>
+          I agree to be contacted regarding my financing request and confirm the information provided is accurate.
+        </label>
+      </div>
+
+      <button type="submit" class="btn">Apply for Financing</button>
     </form>
 
-    <p class="note">We will contact you within 1 business day.</p>
+    <p class="note">We will contact you within 1 business day with personalized options.</p>
   </main>
 
   <footer>
-    <p>&copy; 2026 Mixam's Autos. All rights reserved.</p>
+    <p>&copy; 2025 Mixam's Autos. All rights reserved.</p>
   </footer>
 </body>
 </html>
