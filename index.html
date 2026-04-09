@@ -3,34 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mixam's Autos | Premium Used Cars in Dallas, TX</title>
+  <title>Mixam's Autos | Premium Used Cars Dallas, TX</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
-  <!-- Top Navigation -->
-  <header class="top-nav">
-    <div class="nav-container">
-      <div class="logo">
-        <span class="navy">Mixam's</span> Autos
-      </div>
-      <nav>
-        <a href="#inventory" class="nav-link">Inventory</a>
-        <a href="#financing" class="nav-link">Financing</a>
-        <a href="#reservation" class="nav-link">Reserve</a>
-        <a href="#sell" class="nav-link">Sell / Trade</a>
-        <a href="#contact" class="nav-link">Contact</a>
+
+  <!-- Sticky Header -->
+  <header class="header">
+    <div class="header-container">
+      <div class="logo">Mixam's Autos</div>
+      <nav class="nav-menu">
+        <a href="#home">Home</a>
+        <a href="#inventory">Inventory</a>
+        <a href="#financing">Financing</a>
+        <a href="#sell">Sell / Trade</a>
+        <a href="#reservation">Reserve</a>
+        <a href="#contact">Contact</a>
       </nav>
-      <a href="https://wa.me/13512301881" target="_blank" class="whatsapp-btn">
-        <i class="fab fa-whatsapp"></i> WhatsApp
-      </a>
+      <a href="#inventory" class="btn btn-primary">Browse Cars</a>
     </div>
   </header>
 
   <!-- Hero -->
-  <section class="hero">
-    <div class="hero-overlay">
+  <section id="home" class="hero">
+    <div class="hero-content">
       <h1>Drive Your Dream Car Today</h1>
       <p>Quality Used Vehicles • Easy Financing • Nationwide Delivery</p>
       <div class="hero-buttons">
@@ -41,7 +39,7 @@
   </section>
 
   <!-- Featured Vehicles -->
-  <section id="featured" class="section">
+  <section class="section" id="featured">
     <div class="container">
       <h2>Featured Vehicles</h2>
       <div class="car-grid" id="featuredGrid"></div>
@@ -53,10 +51,22 @@
     <div class="container">
       <h2>Why Choose Mixam's Autos</h2>
       <div class="why-grid">
-        <div class="why-card"><i class="fas fa-car"></i><h3>Clean Title Vehicles</h3></div>
-        <div class="why-card"><i class="fas fa-dollar-sign"></i><h3>Flexible Financing</h3></div>
-        <div class="why-card"><i class="fas fa-shipping-fast"></i><h3>Nationwide Delivery</h3></div>
-        <div class="why-card"><i class="fas fa-check-circle"></i><h3>Quality Inspected</h3></div>
+        <div class="why-card">
+          <i class="fas fa-car"></i>
+          <h3>Clean Title Vehicles</h3>
+        </div>
+        <div class="why-card">
+          <i class="fas fa-handshake"></i>
+          <h3>Flexible Financing</h3>
+        </div>
+        <div class="why-card">
+          <i class="fas fa-truck"></i>
+          <h3>Nationwide Delivery</h3>
+        </div>
+        <div class="why-card">
+          <i class="fas fa-shield-alt"></i>
+          <h3>Quality Inspected</h3>
+        </div>
       </div>
     </div>
   </section>
@@ -77,49 +87,22 @@
     </div>
   </section>
 
-  <!-- Financing Teaser -->
-  <section id="financing" class="section financing-teaser">
-    <div class="container">
-      <h2>Easy Financing Options</h2>
-      <p>Get pre-approved in minutes. Competitive rates available.</p>
-      <a href="#" onclick="alert('Financing form would open here in a full site. Contact us to apply!')" class="btn btn-primary">Apply Now</a>
-    </div>
-  </section>
-
-  <!-- Reviews -->
-  <section class="section reviews">
-    <div class="container">
-      <h2>What Our Customers Say</h2>
-      <div class="review-grid">
-        <div class="review-card">"Best car buying experience ever. Fast and honest!" — Michael T.</div>
-        <div class="review-card">"Delivered my dream car across states. Highly recommend!" — Sarah L.</div>
-        <div class="review-card">"Great selection and transparent pricing." — David R.</div>
-      </div>
-    </div>
-  </section>
-
   <!-- Footer -->
   <footer>
     <div class="container">
       <div class="footer-grid">
         <div>
           <h3>Mixam's Autos</h3>
-          <p>Dallas, Texas • Quality Used Cars</p>
+          <p>Dallas, Texas</p>
         </div>
         <div>
           <h4>Contact</h4>
-          <p>📞 +1 (351) 230-1881</p>
-          <p>📞 +1 (816) 754-9276</p>
-          <p>✉️ mixam1autos@outlook.com</p>
-        </div>
-        <div>
-          <h4>Quick Links</h4>
-          <a href="#inventory">Inventory</a><br>
-          <a href="#financing">Financing</a><br>
-          <a href="#">Reserve a Vehicle</a>
+          <p><a href="https://wa.me/13512301881">WhatsApp: +1 (351) 230-1881</a></p>
+          <p><a href="tel:+18167549276">Text: +1 (816) 754-9276</a></p>
+          <p><a href="mailto:mixam1autos@outlook.com">mixam1autos@outlook.com</a></p>
         </div>
       </div>
-      <p class="copyright">&copy; 2026 Mixam's Autos. All rights reserved.</p>
+      <p class="copyright">&copy; 2025 Mixam's Autos. All rights reserved.</p>
     </div>
   </footer>
 
@@ -133,15 +116,10 @@
       <div id="modalFullDesc" class="modal-desc"></div>
       <div class="modal-buttons">
         <a id="modalEmail" href="#" class="btn btn-primary">Contact Dealer</a>
-        <button onclick="alert('Reservation flow would start here. $50 fee via Flutterwave.')" class="btn btn-secondary">Reserve Vehicle ($50)</button>
+        <button onclick="reserveVehicle()" class="btn btn-secondary">Reserve Vehicle ($50)</button>
       </div>
     </div>
   </div>
-
-  <!-- Sticky WhatsApp -->
-  <a href="https://wa.me/13512301881" target="_blank" class="whatsapp-float">
-    <i class="fab fa-whatsapp"></i>
-  </a>
 
   <script src="script.js"></script>
 </body>
