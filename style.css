@@ -2,23 +2,23 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #FFFFFF;
+  background: #ffffff;
   color: #1C1C1C;
 }
 
 .header {
   background: #0B1F3B;
   color: white;
+  padding: 1rem 0;
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 18px 0;
 }
 
 .header-container {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -30,54 +30,26 @@ body {
   color: #C8A951;
 }
 
-.nav-menu a {
+nav a {
   color: white;
   text-decoration: none;
-  margin: 0 28px;
+  margin-left: 30px;
   font-weight: 500;
 }
 
-.btn {
-  padding: 12px 28px;
-  border-radius: 8px;
-  font-weight: 600;
-  text-decoration: none;
-  display: inline-block;
-  text-align: center;
-  transition: all 0.3s;
-}
-
-.btn-primary {
-  background: #2D6CDF;
-  color: white;
-}
-
-.btn-primary:hover { background: #1E4DB7; }
-
-.btn-secondary {
-  background: transparent;
-  border: 2px solid #2D6CDF;
-  color: #2D6CDF;
-}
-
-.btn-secondary:hover {
-  background: #2D6CDF;
-  color: white;
-}
-
-/* Hero */
 .hero {
+  background: linear-gradient(rgba(11,31,59,0.8), rgba(11,31,59,0.8)), url('https://images.unsplash.com/photo-1492144534652-916f5a5c6e3b?q=80&w=2070') center/cover no-repeat;
   height: 520px;
-  background: linear-gradient(rgba(11,31,59,0.75), rgba(11,31,59,0.75)), url('https://images.unsplash.com/photo-1492144534652-916f5a5c6e3b?q=80&w=2070') center/cover no-repeat;
   display: flex;
   align-items: center;
+  text-align: center;
   color: white;
 }
 
 .hero-content {
-  max-width: 1200px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 20px;
 }
 
 .hero h1 {
@@ -87,17 +59,31 @@ body {
 
 .hero p {
   font-size: 18px;
-  max-width: 600px;
   margin-bottom: 32px;
 }
 
-.hero-buttons .btn {
-  margin-right: 16px;
+.btn {
+  display: inline-block;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  text-decoration: none;
+  margin: 8px;
 }
 
-/* Sections */
+.btn-primary {
+  background: #2D6CDF;
+  color: white;
+}
+
+.btn-secondary {
+  background: transparent;
+  border: 2px solid white;
+  color: white;
+}
+
 .section {
-  padding: 80px 24px;
+  padding: 80px 20px;
 }
 
 .container {
@@ -106,13 +92,11 @@ body {
 }
 
 h2 {
-  font-size: 30px;
   text-align: center;
+  font-size: 30px;
   margin-bottom: 50px;
-  color: #0B1F3B;
 }
 
-/* Car Grid */
 .car-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
@@ -123,72 +107,23 @@ h2 {
   background: white;
   border-radius: 10px;
   overflow: hidden;
-  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-  transition: transform 0.3s;
-}
-
-.car-card:hover {
-  transform: translateY(-8px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
 }
 
 .car-card img {
   width: 100%;
-  height: 180px;
+  height: 200px;
   object-fit: cover;
 }
 
 .car-info {
-  padding: 24px;
-}
-
-.car-info h3 {
-  font-size: 20px;
-  margin-bottom: 8px;
+  padding: 20px;
 }
 
 .price {
   font-size: 22px;
   font-weight: 700;
   color: #0B1F3B;
-  margin: 8px 0;
-}
-
-/* Why Choose */
-.why-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 40px;
-}
-
-.why-card {
-  text-align: center;
-}
-
-.why-card i {
-  font-size: 42px;
-  color: #C8A951;
-  margin-bottom: 16px;
-}
-
-/* Footer */
-footer {
-  background: #0B1F3B;
-  color: white;
-  padding: 60px 24px 30px;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.copyright {
-  text-align: center;
-  margin-top: 40px;
-  opacity: 0.8;
 }
 
 /* Modal */
@@ -196,7 +131,7 @@ footer {
   display: none;
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.85);
+  background: rgba(0,0,0,0.8);
   align-items: center;
   justify-content: center;
   z-index: 2000;
@@ -219,8 +154,26 @@ footer {
   cursor: pointer;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 32px; }
-  .nav-menu { display: none; } /* Add hamburger later if needed */
+.thumbnails {
+  display: flex;
+  gap: 10px;
+  padding: 15px;
+  background: #f8f9fa;
+  overflow-x: auto;
+}
+
+.thumbnails img {
+  width: 90px;
+  height: 65px;
+  object-fit: cover;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* Footer */
+footer {
+  background: #0B1F3B;
+  color: white;
+  text-align: center;
+  padding: 40px 20px;
 }
