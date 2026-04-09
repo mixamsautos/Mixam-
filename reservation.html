@@ -52,7 +52,7 @@
       border-radius: 12px;
       margin: 30px 0;
       text-align: center;
-      display: none; /* hidden until Continue clicked */
+      display: none; /* hidden until Continue is clicked */
     }
     .fee-amount {
       font-size: 32px;
@@ -92,11 +92,6 @@
     .btn-primary {
       background: #2D6CDF;
       color: white;
-    }
-    .btn-secondary {
-      background: #F3F4F6;
-      color: #1C1C1C;
-      border: 1px solid #D1D5DB;
     }
     .note {
       text-align: center;
@@ -213,17 +208,13 @@
         <p><strong>Reservation Fee</strong></p>
         <p>The $50 reservation fee holds this vehicle for you and can be applied toward the purchase price. It is fully refundable if you decide not to proceed.</p>
 
-        <a href="https://flutterwave.com/pay/3pxmnfegosk0" target="_blank" class="btn btn-primary" style="margin-top: 15px;">
+        <a href="https://flutterwave.com/pay/3pxmnfegosk0" target="_blank" class="btn btn-primary" style="margin-top: 20px;">
           Pay $50 Reservation Fee
         </a>
-
-        <button type="submit" class="btn btn-secondary" style="margin-top: 10px;">
-          I Have Paid – Submit Reservation
-        </button>
       </div>
     </form>
 
-    <p class="note" id="successNote" style="display: none;">Reservation received! Our team will contact you shortly to confirm details.</p>
+    <p class="note">After payment, our team will contact you shortly to confirm the reservation.</p>
   </main>
 
   <footer>
