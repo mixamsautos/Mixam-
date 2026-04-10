@@ -8,16 +8,35 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     .hero {
-      background: linear-gradient(rgba(11, 31, 58, 0.75), rgba(31, 58, 95, 0.85)), 
+      background: linear-gradient(rgba(11, 31, 58, 0.78), rgba(31, 58, 95, 0.88)), 
                   url('https://images.unsplash.com/photo-1609521263047-f8f205293f24') center/cover no-repeat;
       color: white;
-      padding: 100px 5% 80px;
+      padding: 110px 5% 90px;
       text-align: center;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+      overflow: hidden;
     }
+
+    /* Gentle fade-in animation for hero content */
+    .hero-content {
+      animation: fadeInUp 1.2s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .hero h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 46px;
@@ -49,7 +68,7 @@
       justify-content: center;
       text-decoration: none;
       min-width: 210px;
-      transition: all 0.3s;
+      transition: all 0.4s ease;
     }
     .btn-primary {
       background: #2563EB;
@@ -58,7 +77,7 @@
     }
     .btn-primary:hover {
       background: #1E40AF;
-      transform: translateY(-2px);
+      transform: translateY(-4px) scale(1.03);
     }
     .btn-secondary {
       background: transparent;
@@ -66,7 +85,8 @@
       border: 2px solid #9CA3AF;
     }
     .btn-secondary:hover {
-      background: rgba(255,255,255,0.1);
+      background: rgba(255,255,255,0.12);
+      transform: translateY(-2px);
     }
 
     /* Mobile improvements */
@@ -76,31 +96,29 @@
       .hero-buttons { flex-direction: column; align-items: center; }
       .btn { width: 100%; max-width: 300px; }
     }
-
-    /* Smooth scroll to inventory */
-    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
   <header>
     <h1>Mixam's Autos</h1>
-
   </header>
 
   <main>
     <!-- Hero -->
     <section class="hero">
-      <h1>Drive Your Dream Car Today</h1>
-      <p class="subtitle">Quality Used Vehicles • Easy Financing • Nationwide Delivery</p>
-      <div class="hero-buttons">
-        <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
-        <a href="financing.html" class="btn btn-secondary">Apply for Financing</a>
-        <a href="trade-in.html" class="btn btn-secondary">Trade In Your Car</a>
-        <a href="reservation.html" class="btn btn-secondary">Reserve a Vehicle</a>
+      <div class="hero-content">
+        <h1>Drive Your Dream Car Today</h1>
+        <p class="subtitle">Quality Used Vehicles • Easy Financing • Nationwide Delivery</p>
+        <div class="hero-buttons">
+          <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
+          <a href="financing.html" class="btn btn-secondary">Apply for Financing</a>
+          <a href="trade-in.html" class="btn btn-secondary">Trade In Your Car</a>
+          <a href="reservation.html" class="btn btn-secondary">Reserve a Vehicle</a>
+        </div>
       </div>
     </section>
 
-    <!-- Inventory Section -->
+    <!-- Inventory -->
     <section id="inventory" class="filters" style="padding: 60px 5% 40px; background: white;">
       <h2 style="text-align: center; margin-bottom: 30px;">Our Inventory</h2>
       <div class="filter-controls" style="text-align: center; margin-bottom: 30px;">
