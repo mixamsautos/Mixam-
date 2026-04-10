@@ -8,33 +8,34 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     .hero {
-      background: linear-gradient(180deg, #0B1F3A 0%, #1F3A5F 100%);
+      background: #0B1F3B;
       color: white;
-      padding: 80px 5% 60px;
+      padding: 100px 5% 80px;
       text-align: center;
+      position: relative;
     }
     .hero h1 {
-      font-size: 38px;
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
       font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 16px;
+      line-height: 1.1;
+      margin-bottom: 12px;
     }
     .hero .subtitle {
-      font-size: 17px;
+      font-size: 19px;
       color: #D1D5DB;
       max-width: 520px;
-      margin: 0 auto 35px;
-      line-height: 1.5;
+      margin: 0 auto 40px;
     }
     .hero-buttons {
       display: flex;
-      gap: 14px;
+      gap: 16px;
       justify-content: center;
       flex-wrap: wrap;
     }
     .btn {
-      height: 52px;
-      padding: 0 28px;
+      height: 56px;
+      padding: 0 32px;
       border-radius: 8px;
       font-size: 16px;
       font-weight: 600;
@@ -42,7 +43,7 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      min-width: 200px;
+      min-width: 210px;
     }
     .btn-primary {
       background: #2563EB;
@@ -54,13 +55,13 @@
       border: 2px solid #9CA3AF;
     }
 
-    /* Mobile fixes */
+    /* Mobile improvements */
     @media (max-width: 768px) {
       .hero h1 {
-        font-size: 32px;
+        font-size: 36px;
       }
       .hero {
-        padding: 70px 5% 50px;
+        padding: 80px 5% 60px;
       }
       .hero-buttons {
         flex-direction: column;
@@ -68,7 +69,7 @@
       }
       .btn {
         width: 100%;
-        max-width: 280px;
+        max-width: 300px;
       }
     }
   </style>
@@ -80,7 +81,7 @@
   </header>
 
   <main>
-    <!-- Hero -->
+    <!-- Hero Section -->
     <section class="hero">
       <h1>Drive Your Dream Car Today</h1>
       <p class="subtitle">Quality Used Vehicles • Easy Financing • Nationwide Delivery</p>
