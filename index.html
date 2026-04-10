@@ -10,20 +10,21 @@
     .hero {
       background: linear-gradient(180deg, #0B1F3A 0%, #1F3A5F 100%);
       color: white;
-      padding: 90px 5% 70px;
+      padding: 80px 5% 60px;
       text-align: center;
     }
     .hero h1 {
-      font-size: 42px;
+      font-size: 38px;
       font-weight: 700;
       line-height: 1.15;
       margin-bottom: 16px;
     }
     .hero .subtitle {
-      font-size: 18px;
+      font-size: 17px;
       color: #D1D5DB;
-      max-width: 580px;
+      max-width: 520px;
       margin: 0 auto 35px;
+      line-height: 1.5;
     }
     .hero-buttons {
       display: flex;
@@ -32,7 +33,7 @@
       flex-wrap: wrap;
     }
     .btn {
-      height: 54px;
+      height: 52px;
       padding: 0 28px;
       border-radius: 8px;
       font-size: 16px;
@@ -52,11 +53,23 @@
       color: white;
       border: 2px solid #9CA3AF;
     }
+
+    /* Mobile fixes */
     @media (max-width: 768px) {
-      .hero h1 { font-size: 34px; }
-      .hero { padding: 70px 5% 60px; }
-      .hero-buttons { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 280px; }
+      .hero h1 {
+        font-size: 32px;
+      }
+      .hero {
+        padding: 70px 5% 50px;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn {
+        width: 100%;
+        max-width: 280px;
+      }
     }
   </style>
 </head>
