@@ -1,4 +1,4 @@
-// script.js - Fixed image paths (images are inside /images/ folder)
+// script.js - Updated with exact image filenames from your commit
 
 const cars = [
   {
@@ -47,16 +47,12 @@ Powerful and dependable full-size pickup with strong towing capability and premi
 • Monthly payment: $406  
 
 Strong, spacious and reliable pickup truck.`,
-    img: "/images/IMG_1551.webp",   // ← Fixed path
+    img: "/IMG_1551.webp",   // Main image
     images: [
-      "/images/IMG_1551.webp", "/images/IMG_1552.webp", "/images/IMG_1553.webp",
-      "/images/IMG_1555.webp", "/images/IMG_1556.webp", "/images/IMG_1557.webp",
-      "/images/IMG_1558.webp", "/images/IMG_1559.webp", "/images/IMG_1560.webp",
-      "/images/IMG_1561.webp", "/images/IMG_1562.webp", "/images/IMG_1563.webp",
-      "/images/IMG_1564.webp", "/images/IMG_1565.webp", "/images/IMG_1566.webp",
-      "/images/IMG_1567.webp", "/images/IMG_1568.webp", "/images/IMG_1569.webp",
-      "/images/IMG_1570.webp", "/images/IMG_1571.webp", "/images/IMG_1572.webp",
-      "/images/IMG_1573.webp"
+      "/IMG_1550.webp", "/IMG_1551.webp", "/IMG_1552.webp", "/IMG_1557.webp", 
+      "/IMG_1560.webp", "/IMG_1559.webp", "/IMG_1561.webp", "/IMG_1565.webp",
+      "/IMG_1566.webp", "/IMG_1567.webp", "/IMG_1571.webp", "/IMG_1572.webp", 
+      "/IMG_1573.webp"
     ]
   }
 ];
@@ -81,7 +77,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = 'car-card';
       card.innerHTML = `
         <img src="${car.img}" alt="${car.year} ${car.make} ${car.model}" 
-             onerror="this.src='https://via.placeholder.com/320x200?text=No+Image+Available'; this.style.objectFit='contain';">
+             onerror="this.src='https://via.placeholder.com/320x200?text=No+Image+Available';">
         <div class="car-info">
           <h3>${car.year} ${car.make} ${car.model}</h3>
           <p class="price">${car.priceDisplay}</p>
