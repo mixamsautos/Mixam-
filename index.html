@@ -7,19 +7,6 @@
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    .header {
-      background: #0B1F3B;
-      color: white;
-      padding: 20px 5%;
-      text-align: center;
-    }
-    .header h1 {
-      font-family: 'Poppins', sans-serif;
-      font-size: 32px;
-      font-weight: 700;
-      margin-bottom: 4px;
-    }
-
     .hero {
       background: linear-gradient(rgba(11, 31, 58, 0.75), rgba(31, 58, 95, 0.85)), 
                   url('https://images.unsplash.com/photo-1609521263047-f8f205293f24') center/cover no-repeat;
@@ -89,11 +76,15 @@
       .hero-buttons { flex-direction: column; align-items: center; }
       .btn { width: 100%; max-width: 300px; }
     }
+
+    /* Smooth scroll to inventory */
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 <body>
-  <header class="header">
+  <header>
     <h1>Mixam's Autos</h1>
+
   </header>
 
   <main>
@@ -109,9 +100,11 @@
       </div>
     </section>
 
-    <!-- Inventory -->
-   
-      
+    <!-- Inventory Section -->
+    <section id="inventory" class="filters" style="padding: 60px 5% 40px; background: white;">
+      <h2 style="text-align: center; margin-bottom: 30px;">Our Inventory</h2>
+      <div class="filter-controls" style="text-align: center; margin-bottom: 30px;">
+        <label>Sort by:</label>
         <select id="sortSelect">
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
@@ -120,7 +113,7 @@
       </div>
     </section>
 
-    <section class="car-grid" id="carGrid">
+    <section class="car-grid" id="carGrid" style="padding: 0 5% 60px; background: white;">
       <!-- Cars added by script.js -->
     </section>
   </main>
