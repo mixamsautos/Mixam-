@@ -1,4 +1,4 @@
-// script.js - Clean version with only the 2013 Ford F-150
+// script.js - Clean USA version with only the 2013 Ford F-150
 
 const cars = [
   {
@@ -47,13 +47,13 @@ Powerful and dependable full-size pickup with strong towing capability and premi
 • Monthly payment: $406  
 
 Strong, spacious and reliable pickup truck.`,
-    img: "/IMG_1551.webp",   // Main image - first from your upload
+    img: "/IMG_1551.webp",   // Main image — first from your upload
     images: [
-      "/IMG_1551.webp","/IMG_1552.webp","/IMG_1553.webp","/IMG_1555.webp","/IMG_1556.webp",
-      "/IMG_1557.webp","/IMG_1558.webp","/IMG_1559.webp","/IMG_1560.webp","/IMG_1561.webp",
-      "/IMG_1562.webp","/IMG_1563.webp","/IMG_1564.webp","/IMG_1565.webp","/IMG_1566.webp",
-      "/IMG_1567.webp","/IMG_1568.webp","/IMG_1569.webp","/IMG_1570.webp","/IMG_1571.webp",
-      "/IMG_1572.webp","/IMG_1573.webp"
+      "/IMG_1551.webp", "/IMG_1552.webp", "/IMG_1553.webp", "/IMG_1555.webp", "/IMG_1556.webp",
+      "/IMG_1557.webp", "/IMG_1558.webp", "/IMG_1559.webp", "/IMG_1560.webp", "/IMG_1561.webp",
+      "/IMG_1562.webp", "/IMG_1563.webp", "/IMG_1564.webp", "/IMG_1565.webp", "/IMG_1566.webp",
+      "/IMG_1567.webp", "/IMG_1568.webp", "/IMG_1569.webp", "/IMG_1570.webp", "/IMG_1571.webp",
+      "/IMG_1572.webp", "/IMG_1573.webp"
     ]
   }
 ];
@@ -77,7 +77,8 @@ document.addEventListener('DOMContentLoaded', () => {
       const card = document.createElement('div');
       card.className = 'car-card';
       card.innerHTML = `
-        <img src="${car.img}" alt="${car.year} ${car.make} ${car.model}" onerror="this.src='https://via.placeholder.com/320x200?text=Car+Image';">
+        <img src="${car.img}" alt="${car.year} ${car.make} ${car.model}" 
+             onerror="this.src='https://via.placeholder.com/320x200?text=No+Image+Available';">
         <div class="car-info">
           <h3>${car.year} ${car.make} ${car.model}</h3>
           <p class="price">${car.priceDisplay}</p>
@@ -91,6 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
       carGrid.appendChild(card);
     });
 
+    // Attach click listeners for View Details
     document.querySelectorAll('.view-details').forEach(btn => {
       btn.addEventListener('click', () => {
         const index = parseInt(btn.dataset.index);
