@@ -1,4 +1,4 @@
-// script.js - Updated for images/ folder
+// script.js - Safe version with fallback for image loading issues
 
 const cars = [
   {
@@ -47,13 +47,12 @@ Powerful and dependable full-size pickup with strong towing capability and premi
 • Monthly payment: $406  
 
 Strong, spacious and reliable pickup truck.`,
-    img: "/images/IMG_1551.webp",
+    img: "/IMG_1551.webp",   // Try root first
     images: [
-      "/images/IMG_1550.webp", "/images/IMG_1551.webp", "/images/IMG_1552.webp",
-      "/images/IMG_1557.webp", "/images/IMG_1560.webp", "/images/IMG_1559.webp",
-      "/images/IMG_1561.webp", "/images/IMG_1565.webp", "/images/IMG_1566.webp",
-      "/images/IMG_1567.webp", "/images/IMG_1571.webp", "/images/IMG_1572.webp",
-      "/images/IMG_1573.webp"
+      "/IMG_1550.webp", "/IMG_1551.webp", "/IMG_1552.webp", "/IMG_1557.webp",
+      "/IMG_1559.webp", "/IMG_1560.webp", "/IMG_1561.webp", "/IMG_1565.webp",
+      "/IMG_1566.webp", "/IMG_1567.webp", "/IMG_1571.webp", "/IMG_1572.webp", 
+      "/IMG_1573.webp"
     ]
   }
 ];
@@ -78,12 +77,12 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = 'car-card';
       card.innerHTML = `
         <img src="${car.img}" alt="${car.year} ${car.make} ${car.model}" 
-             onerror="this.src='https://via.placeholder.com/320x200?text=Loading+Image...';">
+             onerror="this.src='https://via.placeholder.com/320x200/0B1F3B/FFFFFF?text=Image+Not+Found';">
         <div class="car-info">
           <h3>${car.year} ${car.make} ${car.model}</h3>
           <p class="price">${car.priceDisplay}</p>
           <div class="car-details">
-            <span>${car.mileage.toLocaleString()} ${car.mileageUnit}</span>
+            <span>${car.mileage.toLocaleString()} miles</span>
             <span>${car.transmission}</span>
           </div>
           <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
@@ -107,7 +106,9 @@ document.addEventListener('DOMContentLoaded', () => {
         car.images.forEach(src => {
           const img = document.createElement('img');
           img.src = src;
-          img.onerror = () => img.src = 'https://via.placeholder.com/80x60?text=?';
+          img.onerror = () => {
+            img.src = 'https://via.placeholder.com/80x60/0B1F3B/FFFFFF?text=?';
+          };
           img.onclick = () => modalImg.src = src;
           thumbnails.appendChild(img);
         });
