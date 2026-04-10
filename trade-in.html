@@ -15,42 +15,26 @@
       border-radius: 12px;
       box-shadow: 0 10px 40px rgba(0,0,0,0.08);
     }
-    h1 {
-      text-align: center;
-      color: #0B1F3B;
-      margin-bottom: 8px;
+    h1 { text-align: center; color: #0B1F3B; margin-bottom: 8px; }
+    .subtitle { text-align: center; color: #6B7280; margin-bottom: 30px; font-size: 17px; }
+    .form-group { margin-bottom: 22px; }
+    label { display: block; margin-bottom: 6px; font-weight: 500; color: #1C1C1C; }
+    input, select, textarea { 
+      width: 100%; 
+      padding: 14px 16px; 
+      border: 1px solid #D1D5DB; 
+      border-radius: 8px; 
+      font-size: 16px; 
     }
-    .subtitle {
-      text-align: center;
-      color: #6B7280;
-      margin-bottom: 30px;
-      font-size: 17px;
-    }
-    .form-group {
-      margin-bottom: 22px;
-    }
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-      color: #1C1C1C;
-    }
-    input, select, textarea {
-      width: 100%;
-      padding: 14px 16px;
-      border: 1px solid #D1D5DB;
+    textarea { height: 120px; resize: vertical; }
+    .upload-note {
+      background: #F7F8FA;
+      padding: 20px;
+      border: 2px dashed #D1D5DB;
       border-radius: 8px;
-      font-size: 16px;
-    }
-    textarea {
-      height: 120px;
-      resize: vertical;
-    }
-    .note {
       text-align: center;
-      font-size: 14px;
-      color: #6B7280;
-      margin-top: 20px;
+      margin: 15px 0;
+      font-size: 15px;
     }
     .btn {
       width: 100%;
@@ -64,6 +48,7 @@
       color: white;
       cursor: pointer;
     }
+    .note { text-align: center; font-size: 14px; color: #6B7280; }
   </style>
 </head>
 <body>
@@ -236,14 +221,12 @@
         <input type="text" name="interior_color">
       </div>
 
-      <!-- Upload Photos - Fixed version -->
+      <!-- Photo Instruction -->
       <div class="form-group">
-        <label>Upload Photos (front, rear, interior, damage, odometer, etc.)</label>
-        <p style="font-size:14px; color:#6B7280; margin-bottom:8px;">
-          Please attach photos after submitting the form or email them to mixam1autos@outlook.com with your name and vehicle details.
-        </p>
-        <div style="border:2px dashed #D1D5DB; padding:20px; text-align:center; border-radius:8px; background:#F7F8FA;">
-          <strong>Photos can be sent via email after submission</strong>
+        <label>Photos (front, rear, interior, damage, odometer, etc.)</label>
+        <div class="upload-note" style="background:#F7F8FA; padding:20px; border:2px dashed #D1D5DB; border-radius:8px; text-align:center;">
+          <strong>After submitting this form, please email your photos to mixam1autos@outlook.com</strong><br>
+          Include your name and the vehicle make/model/year in the email subject.
         </div>
       </div>
 
