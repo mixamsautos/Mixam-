@@ -42,7 +42,7 @@
     }
     .nav-menu a:hover { color: #D4AF37; }
 
-    /* HERO - Fixed for mobile */
+    /* HERO - Using your preferred large text */
     .hero {
       background: linear-gradient(180deg, #0B1F3A 0%, #1F3A5F 100%);
       color: white;
@@ -145,11 +145,11 @@
     </nav>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO - Using your preferred large text -->
   <section class="hero">
-    <h1>Drive Your Next Vehicle<br>With Confidence</h1>
+    <h1>Drive Your Dream Car<br>Today</h1>
     <p class="subtitle">
-      Quality Pre-Owned Vehicles • Flexible Financing • Nationwide Delivery
+      Quality Used Vehicles • Easy Financing • Nationwide Delivery
     </p>
     <div class="hero-buttons">
       <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
@@ -157,9 +157,17 @@
     </div>
   </section>
 
+  <!-- Inventory Section Title -->
+  <section id="inventory" style="padding: 60px 5% 40px; background: white;">
+    <h2 style="font-size: 28px; text-align: center; margin-bottom: 30px;">Our Inventory</h2>
+    <!-- Your car grid will appear here from script.js -->
+    <div id="carGrid" class="car-grid"></div>
+  </section>
+
   <footer style="background:#0B1F3B; color:#9CA3AF; text-align:center; padding:25px 20px; font-size:14px;">
     © 2025 Mixam's Autos. All rights reserved.
   </footer>
 
+  <script src="script.js"></script>
 </body>
 </html>
