@@ -18,13 +18,12 @@
     h1 {
       text-align: center;
       color: #0B1F3B;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     .subtitle {
       text-align: center;
       color: #6B7280;
-      margin-bottom: 40px;
-      font-size: 17px;
+      margin-bottom: 30px;
     }
     .form-group {
       margin-bottom: 22px;
@@ -42,12 +41,8 @@
       border-radius: 8px;
       font-size: 16px;
     }
-    textarea {
-      height: 110px;
-      resize: vertical;
-    }
     .checkbox-group {
-      margin: 30px 0 20px 0;
+      margin: 25px 0;
       padding: 15px;
       background: #F7F8FA;
       border-radius: 8px;
@@ -60,31 +55,22 @@
       line-height: 1.5;
       cursor: pointer;
     }
-    .checkbox-group input[type="checkbox"] {
-      margin-top: 3px;
-      accent-color: #2D6CDF;
-      width: 18px;
-      height: 18px;
-    }
     .btn {
       width: 100%;
       padding: 16px;
-      background: #2D6CDF;
-      color: white;
+      margin: 15px 0 10px;
       border: none;
       border-radius: 8px;
       font-size: 17px;
       font-weight: 600;
       cursor: pointer;
-    }
-    .btn:hover {
-      background: #1E4DB7;
+      background: #2D6CDF;
+      color: white;
     }
     .note {
       text-align: center;
       font-size: 14px;
       color: #6B7280;
-      margin-top: 25px;
     }
   </style>
 </head>
@@ -97,10 +83,9 @@
 
   <main class="financing-page">
     <h1>Apply for Financing</h1>
-    <p class="subtitle">Please fill out the form below. We will contact you with personalized options shortly.</p>
+    <p class="subtitle">Tell us a little about yourself so we can help you get approved quickly.</p>
 
-    <!-- Replace xYOUR_CODE_HERE with your actual Formspree endpoint -->
-    <form action="https://formspree.io/f/xYOUR_CODE_HERE" method="POST">
+    <form action="https://formspree.io/f/xqegvzev" method="POST">
 
       <!-- Personal Information -->
       <div class="form-group">
@@ -127,19 +112,19 @@
       <!-- Address -->
       <div class="form-group">
         <label>Street Address</label>
-        <input type="text" name="street_address" required>
+        <input type="text" name="street_address">
       </div>
       <div class="form-group">
         <label>City</label>
-        <input type="text" name="city" required>
+        <input type="text" name="city">
       </div>
       <div class="form-group">
         <label>State</label>
-        <input type="text" name="state" required>
+        <input type="text" name="state">
       </div>
       <div class="form-group">
         <label>ZIP Code</label>
-        <input type="text" name="zip_code" required>
+        <input type="text" name="zip_code">
       </div>
 
       <!-- Employment -->
@@ -157,55 +142,49 @@
         </select>
       </div>
       <div class="form-group">
+        <label>Employer Name</label>
+        <input type="text" name="employer_name">
+      </div>
+      <div class="form-group">
         <label>Monthly Income (before tax)</label>
         <input type="number" name="monthly_income" placeholder="e.g. 4500">
       </div>
 
       <!-- Finance Preferences -->
       <div class="form-group">
-        <label>Desired Monthly Payment Budget ($)</label>
-        <input type="number" name="monthly_budget" placeholder="e.g. 400">
-      </div>
-      <div class="form-group">
-        <label>Down Payment Amount ($)</label>
-        <input type="number" name="down_payment" placeholder="e.g. 1500">
-      </div>
-      <div class="form-group">
         <label>Desired Loan Term</label>
         <select name="loan_term">
+          <option value="">Select...</option>
           <option value="24">24 months</option>
           <option value="36">36 months</option>
-          <option value="48" selected>48 months</option>
+          <option value="48">48 months</option>
           <option value="60">60 months</option>
           <option value="72">72 months</option>
         </select>
       </div>
-
-      <!-- Credit Score (optional) -->
       <div class="form-group">
-        <label>Credit Score Range (optional)</label>
-        <select name="credit_score">
-          <option value="">Select...</option>
-          <option value="Excellent">Excellent (720+)</option>
-          <option value="Good">Good (660–719)</option>
-          <option value="Fair">Fair (600–659)</option>
-          <option value="Poor">Poor (below 600)</option>
-          <option value="Not sure">Not sure</option>
-        </select>
+        <label>Desired Monthly Payment Budget</label>
+        <input type="number" name="monthly_budget" placeholder="e.g. 400">
       </div>
 
-      <!-- Agreement Checkbox -->
+      <!-- Agreements -->
       <div class="checkbox-group">
         <label>
-          <input type="checkbox" name="agreement" required>
-          I agree to be contacted regarding my financing request and confirm the information provided is accurate.
+          <input type="checkbox" name="agreement_contact" required>
+          I agree to be contacted regarding my financing request.
+        </label>
+      </div>
+      <div class="checkbox-group">
+        <label>
+          <input type="checkbox" name="agreement_accuracy" required>
+          I confirm the information provided is accurate.
         </label>
       </div>
 
       <button type="submit" class="btn">Apply for Financing</button>
     </form>
 
-    <p class="note">We will contact you within 1 business day with personalized options.</p>
+    <p class="note">Our team will review your application and contact you shortly.</p>
   </main>
 
   <footer>
