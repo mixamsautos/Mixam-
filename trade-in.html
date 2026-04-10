@@ -46,27 +46,11 @@
       height: 120px;
       resize: vertical;
     }
-    .file-upload {
-      border: 2px dashed #D1D5DB;
-      padding: 20px;
+    .note {
       text-align: center;
-      border-radius: 8px;
-      background: #F7F8FA;
-      cursor: pointer;
-    }
-    .checkbox-group {
-      margin: 25px 0;
-      padding: 15px;
-      background: #F7F8FA;
-      border-radius: 8px;
-    }
-    .checkbox-group label {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 15px;
-      line-height: 1.5;
-      cursor: pointer;
+      font-size: 14px;
+      color: #6B7280;
+      margin-top: 20px;
     }
     .btn {
       width: 100%;
@@ -80,26 +64,21 @@
       color: white;
       cursor: pointer;
     }
-    .note {
-      text-align: center;
-      font-size: 14px;
-      color: #6B7280;
-    }
   </style>
 </head>
 <body>
   <header>
     <h1>Mixam's Autos</h1>
-    <p>Quality Used & New Vehicles – Great Deals Every Day</p>
+
   </header>
 
   <main class="trade-page">
     <h1>Trade In or Sell Your Car</h1>
-    <p class="subtitle">Get a fair cash offer for your vehicle in minutes. We buy most makes and models.</p>
+    <p class="subtitle">Get a fair offer for your vehicle in minutes.</p>
 
     <form action="https://formspree.io/f/xqegvzev" method="POST">
 
-      <!-- 1. Owner Contact Information -->
+      <!-- Owner Contact -->
       <div class="form-group">
         <label>First Name</label>
         <input type="text" name="first_name" required>
@@ -116,18 +95,8 @@
         <label>Phone Number</label>
         <input type="tel" name="phone" required>
       </div>
-      <div class="form-group">
-        <label>Preferred Contact Method</label>
-        <select name="contact_method">
-          <option value="">Select...</option>
-          <option value="Call">Call</option>
-          <option value="Text">Text</option>
-          <option value="WhatsApp">WhatsApp</option>
-          <option value="Email">Email</option>
-        </select>
-      </div>
 
-      <!-- 2. Address Information -->
+      <!-- Address -->
       <div class="form-group">
         <label>Street Address</label>
         <input type="text" name="street_address">
@@ -145,7 +114,7 @@
         <input type="text" name="zip_code">
       </div>
 
-      <!-- 3. Vehicle Basic Information -->
+      <!-- Vehicle Basic -->
       <div class="form-group">
         <label>Make</label>
         <input type="text" name="vehicle_make" placeholder="e.g. Ford" required>
@@ -167,10 +136,10 @@
         <input type="text" name="vin">
       </div>
 
-      <!-- 4. Vehicle Specifications -->
+      <!-- Specifications -->
       <div class="form-group">
         <label>Trim</label>
-        <input type="text" name="trim" placeholder="e.g. Lariat, SE, Sport">
+        <input type="text" name="trim" placeholder="e.g. Lariat">
       </div>
       <div class="form-group">
         <label>Body Type</label>
@@ -213,7 +182,7 @@
         </select>
       </div>
 
-      <!-- 5. Vehicle Condition -->
+      <!-- Condition -->
       <div class="form-group">
         <label>Overall Condition</label>
         <select name="condition" required>
@@ -257,7 +226,7 @@
         </select>
       </div>
 
-      <!-- 6. Vehicle Appearance -->
+      <!-- Appearance -->
       <div class="form-group">
         <label>Exterior Color</label>
         <input type="text" name="exterior_color">
@@ -267,30 +236,30 @@
         <input type="text" name="interior_color">
       </div>
 
-      <!-- 7. Upload Photos -->
+      <!-- Upload Photos - Fixed version -->
       <div class="form-group">
         <label>Upload Photos (front, rear, interior, damage, odometer, etc.)</label>
-        <div class="file-upload">
-          <input type="file" name="photos" accept="image/*" multiple style="display:none;" id="photoUpload">
-          <label for="photoUpload" style="cursor:pointer; color:#2D6CDF;">
-            Click to upload photos (multiple allowed)
-          </label>
+        <p style="font-size:14px; color:#6B7280; margin-bottom:8px;">
+          Please attach photos after submitting the form or email them to mixam1autos@outlook.com with your name and vehicle details.
+        </p>
+        <div style="border:2px dashed #D1D5DB; padding:20px; text-align:center; border-radius:8px; background:#F7F8FA;">
+          <strong>Photos can be sent via email after submission</strong>
         </div>
       </div>
 
-      <!-- 8. Price Expectation -->
+      <!-- Price Expectation -->
       <div class="form-group">
         <label>Asking Price (optional)</label>
         <input type="number" name="asking_price" placeholder="e.g. 12000">
       </div>
 
-      <!-- 9. Additional Information -->
+      <!-- Additional Information -->
       <div class="form-group">
-        <label>Additional Information (recent repairs, new tires, service history, etc.)</label>
+        <label>Additional Information (recent repairs, service history, etc.)</label>
         <textarea name="message" placeholder="Tell us anything that might affect the value..."></textarea>
       </div>
 
-      <!-- 10. Agreements -->
+      <!-- Agreements -->
       <div class="checkbox-group">
         <label>
           <input type="checkbox" name="agreement_accuracy" required>
