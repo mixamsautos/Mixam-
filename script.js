@@ -1,4 +1,4 @@
-// script.js - Updated with exact image filenames from your commit
+// script.js - Updated for images/ folder
 
 const cars = [
   {
@@ -47,12 +47,13 @@ Powerful and dependable full-size pickup with strong towing capability and premi
 • Monthly payment: $406  
 
 Strong, spacious and reliable pickup truck.`,
-    img: "/IMG_1551.webp",   // Main image
+    img: "/images/IMG_1551.webp",
     images: [
-      "/IMG_1550.webp", "/IMG_1551.webp", "/IMG_1552.webp", "/IMG_1557.webp", 
-      "/IMG_1560.webp", "/IMG_1559.webp", "/IMG_1561.webp", "/IMG_1565.webp",
-      "/IMG_1566.webp", "/IMG_1567.webp", "/IMG_1571.webp", "/IMG_1572.webp", 
-      "/IMG_1573.webp"
+      "/images/IMG_1550.webp", "/images/IMG_1551.webp", "/images/IMG_1552.webp",
+      "/images/IMG_1557.webp", "/images/IMG_1560.webp", "/images/IMG_1559.webp",
+      "/images/IMG_1561.webp", "/images/IMG_1565.webp", "/images/IMG_1566.webp",
+      "/images/IMG_1567.webp", "/images/IMG_1571.webp", "/images/IMG_1572.webp",
+      "/images/IMG_1573.webp"
     ]
   }
 ];
@@ -77,7 +78,7 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = 'car-card';
       card.innerHTML = `
         <img src="${car.img}" alt="${car.year} ${car.make} ${car.model}" 
-             onerror="this.src='https://via.placeholder.com/320x200?text=No+Image+Available';">
+             onerror="this.src='https://via.placeholder.com/320x200?text=Loading+Image...';">
         <div class="car-info">
           <h3>${car.year} ${car.make} ${car.model}</h3>
           <p class="price">${car.priceDisplay}</p>
@@ -91,7 +92,6 @@ document.addEventListener('DOMContentLoaded', () => {
       carGrid.appendChild(card);
     });
 
-    // View Details buttons
     document.querySelectorAll('.view-details').forEach(btn => {
       btn.addEventListener('click', () => {
         const index = parseInt(btn.dataset.index);
@@ -101,13 +101,13 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImg.src = car.img;
         modalFullDesc.innerHTML = car.desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
 
-        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry about ${car.year} ${car.make} ${car.model} - $${car.price}`;
+        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry about ${car.year} ${car.make} ${car.model}`;
 
         thumbnails.innerHTML = '';
         car.images.forEach(src => {
           const img = document.createElement('img');
           img.src = src;
-          img.onerror = () => img.src = 'https://via.placeholder.com/80x60?text=Photo';
+          img.onerror = () => img.src = 'https://via.placeholder.com/80x60?text=?';
           img.onclick = () => modalImg.src = src;
           thumbnails.appendChild(img);
         });
