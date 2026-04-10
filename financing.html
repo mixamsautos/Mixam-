@@ -8,7 +8,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     .financing-page {
-      max-width: 680px;
+      max-width: 720px;
       margin: 40px auto;
       padding: 40px 30px;
       background: white;
@@ -18,7 +18,7 @@
     h1 {
       text-align: center;
       color: #0B1F3B;
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .subtitle {
       text-align: center;
@@ -43,27 +43,18 @@
       font-size: 16px;
     }
     .checkbox-group {
-      margin: 20px 0;
-      padding: 18px;
+      margin: 25px 0;
+      padding: 15px;
       background: #F7F8FA;
-      border-radius: 10px;
-      border: 1px solid #E5E7EB;
+      border-radius: 8px;
     }
     .checkbox-group label {
       display: flex;
       align-items: flex-start;
-      gap: 14px;
-      font-size: 15.5px;
+      gap: 12px;
+      font-size: 15px;
       line-height: 1.5;
       cursor: pointer;
-      color: #1C1C1C;
-    }
-    .checkbox-group input[type="checkbox"] {
-      margin-top: 3px;
-      width: 22px;
-      height: 22px;
-      accent-color: #2D6CDF;
-      flex-shrink: 0;
     }
     .btn {
       width: 100%;
@@ -85,10 +76,9 @@
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-container">
-      <div class="logo">Mixam's Autos</div>
-    </div>
+  <header>
+    <h1>Mixam's Autos</h1>
+    <p>Quality Used & New Vehicles – Great Deals Every Day</p>
   </header>
 
   <main class="financing-page">
@@ -97,7 +87,7 @@
 
     <form action="https://formspree.io/f/xqegvzev" method="POST">
 
-      <!-- Personal Information -->
+      <!-- 1. Personal Information -->
       <div class="form-group">
         <label>First Name</label>
         <input type="text" name="first_name" required>
@@ -119,7 +109,7 @@
         <input type="tel" name="phone" required>
       </div>
 
-      <!-- Address -->
+      <!-- 2. Address Information -->
       <div class="form-group">
         <label>Street Address</label>
         <input type="text" name="street_address">
@@ -136,8 +126,12 @@
         <label>ZIP Code</label>
         <input type="text" name="zip_code">
       </div>
+      <div class="form-group">
+        <label>Time at Current Address (years/months)</label>
+        <input type="text" name="time_at_address" placeholder="e.g. 3 years">
+      </div>
 
-      <!-- Employment -->
+      <!-- 3. Employment Information -->
       <div class="form-group">
         <label>Employment Status</label>
         <select name="employment_status" required>
@@ -156,35 +150,73 @@
         <input type="text" name="employer_name">
       </div>
       <div class="form-group">
+        <label>Job Title</label>
+        <input type="text" name="job_title">
+      </div>
+      <div class="form-group">
+        <label>Time at Job</label>
+        <input type="text" name="time_at_job" placeholder="e.g. 2 years">
+      </div>
+      <div class="form-group">
         <label>Monthly Income (before tax)</label>
         <input type="number" name="monthly_income" placeholder="e.g. 4500">
       </div>
-
-      <!-- Finance Preferences -->
       <div class="form-group">
-        <label>Desired Loan Term</label>
-        <select name="loan_term">
-          <option value="">Select...</option>
-          <option value="24">24 months</option>
-          <option value="36">36 months</option>
-          <option value="48" selected>48 months</option>
-          <option value="60">60 months</option>
-          <option value="72">72 months</option>
-        </select>
+        <label>Other Income Source (optional)</label>
+        <input type="text" name="other_income">
       </div>
+
+      <!-- 4. Finance Preferences -->
       <div class="form-group">
         <label>Desired Monthly Payment Budget</label>
         <input type="number" name="monthly_budget" placeholder="e.g. 400">
       </div>
+      <div class="form-group">
+        <label>Down Payment Amount</label>
+        <input type="number" name="down_payment" placeholder="e.g. 2000">
+      </div>
+      <div class="form-group">
+        <label>Desired Vehicle (optional)</label>
+        <input type="text" name="desired_vehicle" placeholder="e.g. 2013 Ford F-150">
+      </div>
+      <div class="form-group">
+        <label>Loan Term Preference</label>
+        <select name="loan_term">
+          <option value="">Select...</option>
+          <option value="24">24 months</option>
+          <option value="36">36 months</option>
+          <option value="48">48 months</option>
+          <option value="60">60 months</option>
+          <option value="72">72 months</option>
+        </select>
+      </div>
 
-      <!-- Agreements - Fixed for better visibility -->
+      <!-- 5. Credit Profile -->
+      <div class="form-group">
+        <label>Credit Score Range (optional)</label>
+        <select name="credit_score">
+          <option value="">Select...</option>
+          <option value="Excellent">Excellent (720+)</option>
+          <option value="Good">Good (660–719)</option>
+          <option value="Fair">Fair (600–659)</option>
+          <option value="Poor">Poor (below 600)</option>
+          <option value="Not sure">Not sure</option>
+        </select>
+      </div>
+
+      <!-- 6. Identification -->
+      <div class="form-group">
+        <label>Driver’s License Number (optional)</label>
+        <input type="text" name="drivers_license">
+      </div>
+
+      <!-- 7. Agreements -->
       <div class="checkbox-group">
         <label>
           <input type="checkbox" name="agreement_contact" required>
           I agree to be contacted regarding my financing request.
         </label>
       </div>
-
       <div class="checkbox-group">
         <label>
           <input type="checkbox" name="agreement_accuracy" required>
@@ -199,7 +231,7 @@
   </main>
 
   <footer>
-    <p>&copy; 2025 Mixam's Autos. All rights reserved.</p>
+    <p>&copy; 2025 Mixam's Autos. All rights reserved. | Contact: mixam1autos@outlook.com</p>
   </footer>
 </body>
 </html>
