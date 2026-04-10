@@ -3,66 +3,162 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mixam's Autos</title>
+  <title>Mixam's Autos - Quality Used Vehicles</title>
   <link rel="stylesheet" href="style.css"/>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #f8f9fa;
+      color: #1C1C1C;
+    }
+
+    /* HEADER */
+    .header {
+      background: #0B1F3B;
+      color: white;
+      padding: 20px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: 'Poppins', sans-serif;
+      font-size: 32px;
+      font-weight: 700;
+      color: #D4AF37;
+      letter-spacing: 0.5px;
+    }
+    .nav-menu {
+      display: flex;
+      gap: 28px;
+      font-size: 17px;
+      font-weight: 500;
+      color: #E5E7EB;
+    }
+    .nav-menu a {
+      text-decoration: none;
+      color: inherit;
+      transition: color 0.3s;
+    }
+    .nav-menu a:hover {
+      color: #D4AF37;
+    }
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(180deg, #0B1F3A 0%, #1F3A5F 100%);
+      color: white;
+      padding: 120px 5% 120px;
+      text-align: center;
+      position: relative;
+    }
+    .hero h1 {
+      font-family: 'Poppins', sans-serif;
+      font-size: 48px;
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 18px;
+    }
+    .hero .subtitle {
+      font-size: 18px;
+      font-weight: 400;
+      color: #D1D5DB;
+      letter-spacing: 0.3px;
+      max-width: 620px;
+      margin: 0 auto 32px;
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+    .btn {
+      height: 52px;
+      padding: 0 28px;
+      border-radius: 8px;
+      font-size: 16px;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-decoration: none;
+      transition: all 0.3s;
+      min-width: 200px;
+    }
+    .btn-primary {
+      background: #2563EB;
+      color: white;
+      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+    }
+    .btn-primary:hover {
+      background: #1E40AF;
+      transform: translateY(-2px);
+    }
+    .btn-secondary {
+      background: transparent;
+      color: #E5E7EB;
+      border: 2px solid #9CA3AF;
+    }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 34px;
+      }
+      .nav-menu {
+        font-size: 15px;
+        gap: 20px;
+      }
+      .logo {
+        font-size: 28px;
+      }
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header class="header">
-    <div class="header-container">
-      <div class="logo">Mixam's Autos</div>
-      <nav>
-        <a href="#inventory">Inventory</a>
-        <a href="financing.html">Financing</a>
-        <a href="reservation.html">Reserve</a>
-      </nav>
-    </div>
+    <div class="logo">Mixam's Autos</div>
+    <nav class="nav-menu">
+      <a href="index.html">Inventory</a>
+      <a href="financing.html">Financing</a>
+      <a href="trade-in.html">Trade-In</a>
+      <a href="reservation.html">Reserve</a>
+      <a href="contact.html">Contact</a>
+    </nav>
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="hero">
-    <div class="hero-content">
-      <h1>Drive Your Dream Car Today</h1>
-      <p>Quality Used Vehicles • Easy Financing • Nationwide Delivery</p>
-      <div class="hero-buttons">
-        <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
-        <a href="financing.html" class="btn btn-secondary">Apply for Financing</a>
-      </div>
+    <h1>Drive Your Next Vehicle<br>With Confidence</h1>
+    <p class="subtitle">
+      Quality Pre-Owned Vehicles • Flexible Financing • Nationwide Delivery
+    </p>
+    <div class="hero-buttons">
+      <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
+      <a href="financing.html" class="btn btn-secondary">Apply for Financing</a>
     </div>
   </section>
 
-  <!-- Inventory -->
-  <section id="inventory" class="section">
-    <div class="container">
-      <h2>Our Inventory</h2>
-      <div class="car-grid" id="carGrid"></div>
-    </div>
-  </section>
+  <!-- You can add more sections later (Featured Cars, Why Choose Us, etc.) -->
 
-  <!-- Footer -->
-  <footer>
-    <div class="container">
-      <p>&copy; 2026 Mixam's Autos. All rights reserved.</p>
-    </div>
+  <footer style="background:#0B1F3B; color:#9CA3AF; text-align:center; padding:30px 20px; font-size:14px;">
+    &copy; 2025 Mixam's Autos. All rights reserved.
   </footer>
 
-  <!-- Modal -->
-  <div id="carModal" class="modal">
-    <div class="modal-content">
-      <span class="close">&times;</span>
-      <img id="modalImg" src="" alt="">
-      <div id="thumbnails" class="thumbnails"></div>
-      <h2 id="modalTitle"></h2>
-      <div id="modalFullDesc" class="modal-desc"></div>
-      <div class="modal-buttons">
-        <a id="modalEmail" href="#" class="btn btn-primary">Contact Dealer</a>
-        <a href="reservation.html" class="btn btn-secondary">Reserve Vehicle</a>
-      </div>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
 </body>
 </html>
