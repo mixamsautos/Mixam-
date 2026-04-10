@@ -24,6 +24,7 @@
       text-align: center;
       color: #6B7280;
       margin-bottom: 30px;
+      font-size: 17px;
     }
     .form-group {
       margin-bottom: 22px;
@@ -42,30 +43,39 @@
       font-size: 16px;
     }
     .checkbox-group {
-      margin: 25px 0;
-      padding: 15px;
+      margin: 20px 0;
+      padding: 18px;
       background: #F7F8FA;
-      border-radius: 8px;
+      border-radius: 10px;
+      border: 1px solid #E5E7EB;
     }
     .checkbox-group label {
       display: flex;
       align-items: flex-start;
-      gap: 12px;
-      font-size: 15px;
+      gap: 14px;
+      font-size: 15.5px;
       line-height: 1.5;
       cursor: pointer;
+      color: #1C1C1C;
+    }
+    .checkbox-group input[type="checkbox"] {
+      margin-top: 3px;
+      width: 22px;
+      height: 22px;
+      accent-color: #2D6CDF;
+      flex-shrink: 0;
     }
     .btn {
       width: 100%;
       padding: 16px;
-      margin: 15px 0 10px;
+      margin: 25px 0 10px;
       border: none;
       border-radius: 8px;
       font-size: 17px;
       font-weight: 600;
-      cursor: pointer;
       background: #2D6CDF;
       color: white;
+      cursor: pointer;
     }
     .note {
       text-align: center;
@@ -157,7 +167,7 @@
           <option value="">Select...</option>
           <option value="24">24 months</option>
           <option value="36">36 months</option>
-          <option value="48">48 months</option>
+          <option value="48" selected>48 months</option>
           <option value="60">60 months</option>
           <option value="72">72 months</option>
         </select>
@@ -167,13 +177,14 @@
         <input type="number" name="monthly_budget" placeholder="e.g. 400">
       </div>
 
-      <!-- Agreements -->
+      <!-- Agreements - Fixed for better visibility -->
       <div class="checkbox-group">
         <label>
           <input type="checkbox" name="agreement_contact" required>
           I agree to be contacted regarding my financing request.
         </label>
       </div>
+
       <div class="checkbox-group">
         <label>
           <input type="checkbox" name="agreement_accuracy" required>
