@@ -7,22 +7,14 @@
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-    body {
-      font-family: 'Inter', sans-serif;
-      background: #f8f9fa;
-      color: #1C1C1C;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: #f8f9fa; }
 
     /* HEADER */
     .header {
       background: #0B1F3B;
       color: white;
-      padding: 20px 5%;
+      padding: 18px 5%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -32,49 +24,48 @@
     }
     .logo {
       font-family: 'Poppins', sans-serif;
-      font-size: 32px;
+      font-size: 28px;
       font-weight: 700;
       color: #D4AF37;
       letter-spacing: 0.5px;
     }
     .nav-menu {
       display: flex;
-      gap: 28px;
-      font-size: 17px;
+      gap: 24px;
+      font-size: 16px;
       font-weight: 500;
       color: #E5E7EB;
     }
     .nav-menu a {
       text-decoration: none;
       color: inherit;
-      transition: color 0.3s;
     }
-    .nav-menu a:hover {
-      color: #D4AF37;
-    }
+    .nav-menu a:hover { color: #D4AF37; }
 
     /* HERO */
     .hero {
       background: linear-gradient(180deg, #0B1F3A 0%, #1F3A5F 100%);
       color: white;
-      padding: 120px 5% 120px;
+      padding: 100px 5% 80px;
       text-align: center;
-      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .hero h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 48px;
+      font-size: 42px;
       font-weight: 700;
       line-height: 1.15;
-      margin-bottom: 18px;
+      margin-bottom: 20px;
     }
     .hero .subtitle {
       font-size: 18px;
-      font-weight: 400;
       color: #D1D5DB;
-      letter-spacing: 0.3px;
-      max-width: 620px;
-      margin: 0 auto 32px;
+      max-width: 580px;
+      margin: 0 auto 40px;
+      line-height: 1.5;
     }
     .hero-buttons {
       display: flex;
@@ -83,8 +74,8 @@
       flex-wrap: wrap;
     }
     .btn {
-      height: 52px;
-      padding: 0 28px;
+      height: 54px;
+      padding: 0 32px;
       border-radius: 8px;
       font-size: 16px;
       font-weight: 600;
@@ -98,7 +89,7 @@
     .btn-primary {
       background: #2563EB;
       color: white;
-      box-shadow: 0 6px 18px rgba(37, 99, 235, 0.25);
+      box-shadow: 0 6px 18px rgba(37,99,235,0.3);
     }
     .btn-primary:hover {
       background: #1E40AF;
@@ -110,20 +101,32 @@
       border: 2px solid #9CA3AF;
     }
     .btn-secondary:hover {
-      background: rgba(255,255,255,0.08);
+      background: rgba(255,255,255,0.1);
     }
 
-    /* Responsive */
+    /* Mobile fixes */
     @media (max-width: 768px) {
       .hero h1 {
         font-size: 34px;
       }
+      .hero {
+        padding: 80px 5% 60px;
+        min-height: auto;
+      }
       .nav-menu {
+        gap: 18px;
         font-size: 15px;
-        gap: 20px;
       }
       .logo {
-        font-size: 28px;
+        font-size: 26px;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+      }
+      .btn {
+        width: 100%;
+        max-width: 280px;
       }
     }
   </style>
@@ -154,10 +157,8 @@
     </div>
   </section>
 
-  <!-- You can add more sections later (Featured Cars, Why Choose Us, etc.) -->
-
-  <footer style="background:#0B1F3B; color:#9CA3AF; text-align:center; padding:30px 20px; font-size:14px;">
-    &copy; 2025 Mixam's Autos. All rights reserved.
+  <footer style="background:#0B1F3B; color:#9CA3AF; text-align:center; padding:25px 20px; font-size:14px;">
+    © 2025 Mixam's Autos. All rights reserved.
   </footer>
 
 </body>
