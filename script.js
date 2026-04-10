@@ -1,4 +1,4 @@
-// script.js - Clean USA version with only the 2013 Ford F-150
+// script.js - Fixed image paths (images are inside /images/ folder)
 
 const cars = [
   {
@@ -47,13 +47,16 @@ Powerful and dependable full-size pickup with strong towing capability and premi
 • Monthly payment: $406  
 
 Strong, spacious and reliable pickup truck.`,
-    img: "/IMG_1551.webp",   // Main image — first from your upload
+    img: "/images/IMG_1551.webp",   // ← Fixed path
     images: [
-      "/IMG_1551.webp", "/IMG_1552.webp", "/IMG_1553.webp", "/IMG_1555.webp", "/IMG_1556.webp",
-      "/IMG_1557.webp", "/IMG_1558.webp", "/IMG_1559.webp", "/IMG_1560.webp", "/IMG_1561.webp",
-      "/IMG_1562.webp", "/IMG_1563.webp", "/IMG_1564.webp", "/IMG_1565.webp", "/IMG_1566.webp",
-      "/IMG_1567.webp", "/IMG_1568.webp", "/IMG_1569.webp", "/IMG_1570.webp", "/IMG_1571.webp",
-      "/IMG_1572.webp", "/IMG_1573.webp"
+      "/images/IMG_1551.webp", "/images/IMG_1552.webp", "/images/IMG_1553.webp",
+      "/images/IMG_1555.webp", "/images/IMG_1556.webp", "/images/IMG_1557.webp",
+      "/images/IMG_1558.webp", "/images/IMG_1559.webp", "/images/IMG_1560.webp",
+      "/images/IMG_1561.webp", "/images/IMG_1562.webp", "/images/IMG_1563.webp",
+      "/images/IMG_1564.webp", "/images/IMG_1565.webp", "/images/IMG_1566.webp",
+      "/images/IMG_1567.webp", "/images/IMG_1568.webp", "/images/IMG_1569.webp",
+      "/images/IMG_1570.webp", "/images/IMG_1571.webp", "/images/IMG_1572.webp",
+      "/images/IMG_1573.webp"
     ]
   }
 ];
@@ -78,12 +81,12 @@ document.addEventListener('DOMContentLoaded', () => {
       card.className = 'car-card';
       card.innerHTML = `
         <img src="${car.img}" alt="${car.year} ${car.make} ${car.model}" 
-             onerror="this.src='https://via.placeholder.com/320x200?text=No+Image+Available';">
+             onerror="this.src='https://via.placeholder.com/320x200?text=No+Image+Available'; this.style.objectFit='contain';">
         <div class="car-info">
           <h3>${car.year} ${car.make} ${car.model}</h3>
           <p class="price">${car.priceDisplay}</p>
           <div class="car-details">
-            <span>${car.mileage.toLocaleString()} miles</span>
+            <span>${car.mileage.toLocaleString()} ${car.mileageUnit}</span>
             <span>${car.transmission}</span>
           </div>
           <button class="btn btn-primary view-details" data-index="${index}">View Details</button>
@@ -92,7 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
       carGrid.appendChild(card);
     });
 
-    // Attach click listeners for View Details
+    // View Details buttons
     document.querySelectorAll('.view-details').forEach(btn => {
       btn.addEventListener('click', () => {
         const index = parseInt(btn.dataset.index);
@@ -102,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
         modalImg.src = car.img;
         modalFullDesc.innerHTML = car.desc.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>').replace(/\n/g, '<br>');
 
-        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry about ${car.year} ${car.make} ${car.model}`;
+        modalEmail.href = `mailto:mixam1autos@outlook.com?subject=Enquiry about ${car.year} ${car.make} ${car.model} - $${car.price}`;
 
         thumbnails.innerHTML = '';
         car.images.forEach(src => {
