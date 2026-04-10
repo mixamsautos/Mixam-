@@ -11,12 +11,16 @@
       background: linear-gradient(rgba(11, 31, 58, 0.75), rgba(31, 58, 95, 0.85)), 
                   url('https://images.unsplash.com/photo-1609521263047-f8f205293f24') center/cover no-repeat;
       color: white;
-      padding: 90px 5% 70px;
+      padding: 100px 5% 80px;
       text-align: center;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .hero h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 42px;
+      font-size: 48px;
       font-weight: 700;
       line-height: 1.15;
       margin-bottom: 16px;
@@ -25,7 +29,7 @@
       font-size: 18px;
       color: #D1D5DB;
       max-width: 580px;
-      margin: 0 auto 35px;
+      margin: 0 auto 40px;
     }
     .hero-buttons {
       display: flex;
@@ -58,7 +62,7 @@
     /* Mobile fixes */
     @media (max-width: 768px) {
       .hero h1 { font-size: 34px; }
-      .hero { padding: 70px 5% 60px; }
+      .hero { padding: 80px 5% 60px; min-height: auto; }
       .hero-buttons { flex-direction: column; align-items: center; }
       .btn { width: 100%; max-width: 280px; }
     }
@@ -71,7 +75,7 @@
   </header>
 
   <main>
-    <!-- Hero with your preferred text -->
+    <!-- Clean Hero -->
     <section class="hero">
       <h1>Drive Your Dream Car Today</h1>
       <p class="subtitle">Quality Used Vehicles • Easy Financing • Nationwide Delivery</p>
