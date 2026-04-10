@@ -8,23 +8,27 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
     .hero {
-      background: #0B1F3B;
+      background: linear-gradient(rgba(11, 31, 58, 0.75), rgba(31, 58, 95, 0.85)), 
+                  url('https://images.unsplash.com/photo-1609521263047-f8f205293f24') center/cover no-repeat;
       color: white;
       padding: 100px 5% 80px;
       text-align: center;
-      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
     .hero h1 {
       font-family: 'Poppins', sans-serif;
       font-size: 48px;
       font-weight: 700;
-      line-height: 1.1;
-      margin-bottom: 12px;
+      line-height: 1.15;
+      margin-bottom: 16px;
     }
     .hero .subtitle {
-      font-size: 19px;
+      font-size: 18px;
       color: #D1D5DB;
-      max-width: 520px;
+      max-width: 580px;
       margin: 0 auto 40px;
     }
     .hero-buttons {
@@ -34,7 +38,7 @@
       flex-wrap: wrap;
     }
     .btn {
-      height: 56px;
+      height: 54px;
       padding: 0 32px;
       border-radius: 8px;
       font-size: 16px;
@@ -43,7 +47,7 @@
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      min-width: 210px;
+      min-width: 200px;
     }
     .btn-primary {
       background: #2563EB;
@@ -55,22 +59,12 @@
       border: 2px solid #9CA3AF;
     }
 
-    /* Mobile improvements */
+    /* Mobile fixes */
     @media (max-width: 768px) {
-      .hero h1 {
-        font-size: 36px;
-      }
-      .hero {
-        padding: 80px 5% 60px;
-      }
-      .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-      }
-      .btn {
-        width: 100%;
-        max-width: 300px;
-      }
+      .hero h1 { font-size: 34px; }
+      .hero { padding: 80px 5% 60px; min-height: auto; }
+      .hero-buttons { flex-direction: column; align-items: center; }
+      .btn { width: 100%; max-width: 280px; }
     }
   </style>
 </head>
@@ -81,7 +75,7 @@
   </header>
 
   <main>
-    <!-- Hero Section -->
+    <!-- Hero with premium showroom background -->
     <section class="hero">
       <h1>Drive Your Dream Car Today</h1>
       <p class="subtitle">Quality Used Vehicles • Easy Financing • Nationwide Delivery</p>
