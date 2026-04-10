@@ -11,7 +11,7 @@
       background: linear-gradient(rgba(11, 31, 58, 0.75), rgba(31, 58, 95, 0.85)), 
                   url('https://images.unsplash.com/photo-1609521263047-f8f205293f24') center/cover no-repeat;
       color: white;
-      padding: 100px 5% 80px;
+      padding: 110px 5% 80px;
       text-align: center;
       min-height: 100vh;
       display: flex;
@@ -20,16 +20,17 @@
     }
     .hero h1 {
       font-family: 'Poppins', sans-serif;
-      font-size: 48px;
+      font-size: 46px;
       font-weight: 700;
-      line-height: 1.15;
-      margin-bottom: 16px;
+      line-height: 1.12;
+      margin-bottom: 18px;
     }
     .hero .subtitle {
       font-size: 18px;
       color: #D1D5DB;
-      max-width: 580px;
-      margin: 0 auto 40px;
+      max-width: 560px;
+      margin: 0 auto 42px;
+      line-height: 1.5;
     }
     .hero-buttons {
       display: flex;
@@ -38,43 +39,53 @@
       flex-wrap: wrap;
     }
     .btn {
-      height: 54px;
-      padding: 0 32px;
-      border-radius: 8px;
-      font-size: 16px;
+      height: 56px;
+      padding: 0 34px;
+      border-radius: 10px;
+      font-size: 16.5px;
       font-weight: 600;
       display: flex;
       align-items: center;
       justify-content: center;
       text-decoration: none;
-      min-width: 200px;
+      min-width: 210px;
+      transition: all 0.3s;
     }
     .btn-primary {
       background: #2563EB;
       color: white;
+      box-shadow: 0 6px 20px rgba(37,99,235,0.3);
+    }
+    .btn-primary:hover {
+      background: #1E40AF;
+      transform: translateY(-2px);
     }
     .btn-secondary {
       background: transparent;
       color: white;
       border: 2px solid #9CA3AF;
     }
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.1);
+    }
 
-    /* Mobile fixes */
+    /* Mobile improvements */
     @media (max-width: 768px) {
       .hero h1 { font-size: 34px; }
       .hero { padding: 80px 5% 60px; min-height: auto; }
       .hero-buttons { flex-direction: column; align-items: center; }
-      .btn { width: 100%; max-width: 280px; }
+      .btn { width: 100%; max-width: 300px; }
     }
   </style>
 </head>
 <body>
   <header>
     <h1>Mixam's Autos</h1>
+    <p>Quality Used & New Vehicles – Great Deals Every Day</p>
   </header>
 
   <main>
-    <!-- Clean Hero -->
+    <!-- Hero -->
     <section class="hero">
       <h1>Drive Your Dream Car Today</h1>
       <p class="subtitle">Quality Used Vehicles • Easy Financing • Nationwide Delivery</p>
