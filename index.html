@@ -17,7 +17,6 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
-      position: relative;
     }
 
     .hero h1 {
@@ -35,7 +34,6 @@
       max-width: 520px;
       font-size: 17px;
       line-height: 1.5;
-      backdrop-filter: blur(8px);
     }
 
     .hero-buttons {
@@ -79,11 +77,26 @@
       transform: translateY(-3px);
     }
 
-    /* Mobile improvements */
+    /* Inventory section - hidden by default */
+    #inventory-section {
+      display: none;
+      padding: 60px 5% 40px;
+      background: white;
+    }
+
+    .car-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 24px;
+      padding: 40px 5%;
+      max-width: 1400px;
+      margin: 0 auto;
+    }
+
+    /* Mobile */
     @media (max-width: 768px) {
       .hero h1 { font-size: 34px; }
-      .hero { padding: 80px 5% 60px; min-height: auto; }
-      .subtitle-box { margin-bottom: 32px; font-size: 16px; }
+      .hero { padding: 80px 5% 60px; }
     }
   </style>
 </head>
@@ -93,44 +106,47 @@
   </header>
 
   <main>
-    <!-- Hero - styled like your screenshot -->
+    <!-- Hero -->
     <section class="hero">
       <h1>Drive Your Dream Car Today</h1>
-      
       <div class="subtitle-box">
         Quality Used Vehicles • Easy Financing • Nationwide Delivery
       </div>
-
       <div class="hero-buttons">
-        <a href="#inventory" class="btn btn-primary">Browse Inventory</a>
+        <a href="#" onclick="showInventory(); return false;" class="btn btn-primary">Browse Inventory</a>
         <a href="financing.html" class="btn btn-secondary">Apply for Financing</a>
         <a href="trade-in.html" class="btn btn-secondary">Trade In Your Car</a>
         <a href="reservation.html" class="btn btn-secondary">Reserve a Vehicle</a>
       </div>
     </section>
 
-    <!-- Inventory -->
-    <section id="inventory" class="filters" style="padding: 60px 5% 40px; background: white;">
-      <h2 style="text-align: center; margin-bottom: 30px;">Our Inventory</h2>
-      <div class="filter-controls" style="text-align: center; margin-bottom: 30px;">
-        <label>Sort by:</label>
+    <!-- Inventory - hidden until button clicked -->
+    <section id="inventory-section">
+      <h2 style="text-align: center; margin-bottom: 20px;">Our Inventory</h2>
+      <div style="text-align: center; margin-bottom: 30px;">
+        <label>Sort by: </label>
         <select id="sortSelect">
           <option value="price-asc">Price: Low to High</option>
           <option value="price-desc">Price: High to Low</option>
           <option value="year-desc">Newest First</option>
         </select>
       </div>
-    </section>
-
-    <section class="car-grid" id="carGrid" style="padding: 0 5% 60px; background: white;">
-      <!-- Cars added by script.js -->
+      <div class="car-grid" id="carGrid">
+        <!-- Cars added by script.js -->
+      </div>
     </section>
   </main>
 
   <footer>
-    <p>&copy; 2026 Mixam's Autos. All rights reserved. | Contact: mixam1autos@outlook.com</p>
+    <p>&copy; 2025 Mixam's Autos. All rights reserved. | Contact: mixam1autos@outlook.com</p>
   </footer>
 
   <script src="script.js"></script>
+  <script>
+    function showInventory() {
+      document.getElementById('inventory-section').style.display = 'block';
+      document.getElementById('inventory-section').scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
 </body>
 </html>
