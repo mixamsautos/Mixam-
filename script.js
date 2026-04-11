@@ -1,4 +1,4 @@
-// script.js - Mixam's Autos - Swipeable Gallery
+// script.js - Clean Modal like your screenshot
 const cars = [
   {
     make: "Ford",
@@ -105,7 +105,7 @@ function renderCars(carList) {
   });
 }
 
-// Show swipeable modal
+// Clean modal like your screenshot
 function showCarModal() {
   if (!currentCar) return;
 
@@ -113,90 +113,87 @@ function showCarModal() {
   if (!modal) {
     modal = document.createElement('div');
     modal.id = 'carModal';
-    modal.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:2000;padding:10px;box-sizing:border-box;`;
+    modal.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:2000;padding:10px;`;
     document.body.appendChild(modal);
   }
 
   modal.innerHTML = `
-    <div style="background:#fff;width:100%;max-width:620px;border-radius:16px;overflow:hidden;max-height:94vh;display:flex;flex-direction:column;">
-      <!-- Image container with swipe support -->
-      <div id="imageContainer" style="position:relative;height:280px;background:#000;overflow:hidden;">
-        <img id="modalMainImg" src="${currentCar.images[currentImageIndex]}" style="width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease;">
-        
-        <!-- Navigation arrows -->
-        <button onclick="prevImage()" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:44px;height:44px;border-radius:50%;font-size:24px;cursor:pointer;">‹</button>
-        <button onclick="nextImage()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:44px;height:44px;border-radius:50%;font-size:24px;cursor:pointer;">›</button>
+    <div style="background:#fff;width:100%;max-width:620px;border-radius:16px;overflow:hidden;max-height:96vh;display:flex;flex-direction:column;">
+      
+      <!-- Main Image + Counter -->
+      <div style="position:relative;height:280px;background:#000;">
+        <img id="modalMainImg" src="${currentCar.images[currentImageIndex]}" style="width:100%;height:100%;object-fit:cover;">
         
         <!-- Counter -->
-        <div id="imageCounter" style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:white;padding:4px 14px;border-radius:20px;font-size:14px;">
+        <div id="imageCounter" style="position:absolute;top:16px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.75);color:white;padding:6px 16px;border-radius:20px;font-size:15px;font-weight:600;">
           ${currentImageIndex + 1} / ${currentCar.images.length}
         </div>
+        
+        <!-- Arrows -->
+        <button onclick="prevImage()" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:44px;height:44px;border-radius:50%;font-size:28px;">‹</button>
+        <button onclick="nextImage()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:44px;height:44px;border-radius:50%;font-size:28px;">›</button>
       </div>
 
       <!-- Thumbnails -->
-      <div style="display:flex;gap:8px;padding:12px 12px 8px;overflow-x:auto;background:#f8f9fa;">
-        ${currentCar.images.map((imgSrc, i) => `
-          <img src="${imgSrc}" onclick="goToImage(${i})" 
-               style="width:74px;height:56px;object-fit:cover;border-radius:6px;cursor:pointer;border:3px solid ${i === currentImageIndex ? '#2563EB' : 'transparent'};">
+      <div style="display:flex;gap:8px;padding:12px;overflow-x:auto;background:#f8f9fa;border-bottom:1px solid #eee;">
+        ${currentCar.images.map((src, i) => `
+          <img src="${src}" onclick="goToImage(${i})" 
+               style="width:78px;height:58px;object-fit:cover;border-radius:8px;cursor:pointer;border:3px solid ${i === currentImageIndex ? '#2563EB' : '#ddd'};">
         `).join('')}
       </div>
 
-      <!-- Details -->
-      <div style="padding:20px;flex:1;overflow-y:auto;">
-        <h2 style="margin:0 0 8px;font-size:24px;">${currentCar.year} ${currentCar.model}</h2>
-        <p style="font-size:28px;font-weight:700;color:#2563EB;margin:8px 0;">${currentCar.priceDisplay}</p>
+      <!-- Content -->
+      <div style="padding:20px 20px 30px;flex:1;overflow-y:auto;">
+        <h2 style="font-size:26px;line-height:1.2;margin:0 0 12px;">2010 F-150 FX4 SuperCab 4WD</h2>
+        <p style="font-size:32px;font-weight:700;color:#2563EB;margin:8px 0;">$7,500</p>
         
-        <div style="display:flex;gap:20px;margin:16px 0;font-size:15px;color:#555;">
-          <div><strong>${currentCar.mileage.toLocaleString()} miles</strong></div>
-          <div><strong>${currentCar.transmission}</strong></div>
-          <div><strong>${currentCar.color}</strong></div>
+        <div style="display:flex;gap:20px;margin:16px 0 24px;font-size:15.5px;color:#444;">
+          <div><strong>92,707 miles</strong></div>
+          <div><strong>Automatic</strong></div>
+          <div><strong>Red</strong></div>
         </div>
 
-        <div style="white-space:pre-line;line-height:1.65;color:#333;margin-bottom:30px;">
-          ${currentCar.desc}
+        <p style="line-height:1.65;color:#333;margin-bottom:28px;">
+          Strong and dependable 4WD pickup with powerful V8 engine ✔️ Great for work, towing, or daily driving with solid performance.
+        </p>
+
+        <div style="margin-bottom:24px;">
+          <strong>Key Details</strong><br><br>
+          • Price: $7,500<br>
+          • Mileage: 92,707 miles<br>
+          • Drivetrain: 4WD<br>
+          • Engine: 320 hp 5.4L V8 Flex Fuel<br>
+          • Transmission: Automatic
         </div>
 
         <!-- Contact Buttons -->
-        <div style="display:flex;flex-direction:column;gap:12px;">
+        <div style="display:flex;flex-direction:column;gap:14px;">
           <a href="https://wa.me/13512301881" target="_blank" style="background:#25D366;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">💬 WhatsApp +1 (351) 230-1881</a>
           <a href="sms:+18167549276" target="_blank" style="background:#007AFF;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">✉️ Text +1 (816) 754-9276</a>
           <a href="mailto:mixam1autos@outlook.com?subject=Interest in 2010 Ford F-150 FX4 SuperCab 4WD" style="background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">📧 Email mixam1autos@outlook.com</a>
         </div>
       </div>
 
-      <button onclick="closeModal()" style="margin:10px auto 20px;background:#ddd;color:#333;border:none;padding:10px 30px;border-radius:999px;cursor:pointer;">Close</button>
+      <button onclick="closeModal()" style="margin:0 20px 20px;background:#eee;color:#333;border:none;padding:14px;border-radius:999px;font-size:16px;">Close</button>
     </div>
   `;
 
-  // Add swipe support
   addSwipeSupport();
 }
 
 function addSwipeSupport() {
-  const container = document.getElementById('imageContainer');
+  const container = document.getElementById('modalMainImg');
   if (!container) return;
 
   let startX = 0;
-  let isDragging = false;
-
-  container.addEventListener('touchstart', e => {
-    startX = e.touches[0].clientX;
-    isDragging = true;
-  });
-
+  container.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
   container.addEventListener('touchend', e => {
-    if (!isDragging) return;
-    const endX = e.changedTouches[0].clientX;
-    const diff = startX - endX;
-
-    if (diff > 50) nextImage();        // swipe left
-    else if (diff < -50) prevImage();  // swipe right
-
-    isDragging = false;
+    const diff = startX - e.changedTouches[0].clientX;
+    if (diff > 60) nextImage();
+    else if (diff < -60) prevImage();
   });
 }
 
-// Navigation functions
 function prevImage() {
   if (!currentCar) return;
   currentImageIndex = (currentImageIndex - 1 + currentCar.images.length) % currentCar.images.length;
@@ -226,7 +223,7 @@ function closeModal() {
   if (modal) modal.remove();
 }
 
-// Sort + initial render
+// Sort & init
 function sortCars() {
   const value = document.getElementById('sortSelect').value;
   let sorted = [...cars];
