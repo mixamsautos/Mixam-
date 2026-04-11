@@ -1,173 +1,230 @@
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #ffffff;
+  background: #f8f9fa;
   color: #1C1C1C;
+  line-height: 1.6;
 }
 
-.header {
+/* Header */
+header {
   background: #0B1F3B;
   color: white;
-  padding: 1rem 0;
+  text-align: center;
+  padding: 1.5rem 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
 }
 
-.header-container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 0 20px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.logo {
-  font-size: 26px;
+header h1 {
+  font-size: 28px;
   font-weight: 700;
-  color: #C8A951;
+  letter-spacing: 0.5px;
 }
 
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 30px;
-  font-weight: 500;
-}
-
+/* Hero */
 .hero {
-  background: linear-gradient(rgba(11,31,59,0.8), rgba(11,31,59,0.8)), url('https://images.unsplash.com/photo-1492144534652-916f5a5c6e3b?q=80&w=2070') center/cover no-repeat;
-  height: 520px;
-  display: flex;
-  align-items: center;
-  text-align: center;
+  background: linear-gradient(rgba(11, 31, 58, 0.82), rgba(31, 58, 95, 0.92)), 
+              url('https://images.unsplash.com/photo-1609521263047-f8f205293f24') center/cover no-repeat fixed;
   color: white;
+  padding: 120px 5% 90px;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
 }
 
 .hero-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 20px;
+  animation: fadeInUp 1.6s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .hero h1 {
-  font-size: 42px;
-  margin-bottom: 16px;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 18px;
 }
 
-.hero p {
+.hero .subtitle {
   font-size: 18px;
-  margin-bottom: 32px;
+  color: #D1D5DB;
+  max-width: 560px;
+  margin: 0 auto 42px;
+  line-height: 1.5;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
 
 .btn {
-  display: inline-block;
-  padding: 14px 28px;
-  border-radius: 8px;
+  height: 56px;
+  padding: 0 34px;
+  border-radius: 10px;
+  font-size: 16.5px;
   font-weight: 600;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-decoration: none;
-  margin: 8px;
+  min-width: 210px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 .btn-primary {
-  background: #2D6CDF;
+  background: #2563EB;
   color: white;
+  box-shadow: 0 8px 25px rgba(37,99,235,0.35);
+}
+
+.btn-primary:hover {
+  background: #1E40AF;
+  transform: translateY(-5px) scale(1.04);
 }
 
 .btn-secondary {
   background: transparent;
-  border: 2px solid white;
   color: white;
+  border: 2px solid #9CA3AF;
 }
 
-.section {
-  padding: 80px 20px;
+.btn-secondary:hover {
+  background: rgba(255,255,255,0.12);
+  transform: translateY(-3px);
+  border-color: #D1D5DB;
 }
 
-.container {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-h2 {
+/* Inventory Section */
+.filters {
+  padding: 60px 5% 40px;
+  background: white;
   text-align: center;
-  font-size: 30px;
-  margin-bottom: 50px;
+}
+
+.filter-controls {
+  margin-bottom: 30px;
 }
 
 .car-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
   gap: 24px;
+  padding: 0 5% 80px;
+  background: white;
+  max-width: 1400px;
+  margin: 0 auto;
 }
 
+/* 3D Card Animation */
 .car-card {
   background: white;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  perspective: 1200px;
+  position: relative;
+}
+
+.car-card:hover {
+  transform: translateY(-12px) rotateX(8deg) rotateY(8deg);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
 }
 
 .car-card img {
   width: 100%;
-  height: 200px;
+  height: 220px;
   object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.car-card:hover img {
+  transform: scale(1.06);
 }
 
 .car-info {
-  padding: 20px;
+  padding: 1.5rem;
 }
 
-.price {
-  font-size: 22px;
-  font-weight: 700;
+.car-info h3 {
+  font-size: 1.35rem;
+  margin-bottom: 0.6rem;
   color: #0B1F3B;
 }
 
-/* Modal */
-.modal {
-  display: none;
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,0.8);
-  align-items: center;
-  justify-content: center;
-  z-index: 2000;
+.price {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: #2563EB;
+  margin: 0.5rem 0;
 }
 
-.modal-content {
-  background: white;
-  width: 90%;
-  max-width: 900px;
-  border-radius: 10px;
-  max-height: 92vh;
-  overflow-y: auto;
-}
-
-.close {
-  position: absolute;
-  top: 15px;
-  right: 25px;
-  font-size: 36px;
-  cursor: pointer;
-}
-
-.thumbnails {
+.car-details {
   display: flex;
-  gap: 10px;
-  padding: 15px;
-  background: #f8f9fa;
-  overflow-x: auto;
+  justify-content: space-between;
+  font-size: 0.95rem;
+  color: #555;
+  margin: 12px 0;
 }
 
-.thumbnails img {
-  width: 90px;
-  height: 65px;
-  object-fit: cover;
-  cursor: pointer;
-  border-radius: 6px;
+.car-desc {
+  font-size: 0.95rem;
+  color: #666;
+  margin: 1rem 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.btn-group {
+  display: flex;
+  gap: 12px;
+  margin-top: 1rem;
+}
+
+.btn-small {
+  flex: 1;
+  padding: 12px;
+  text-align: center;
+  border-radius: 8px;
+  font-weight: 500;
+  text-decoration: none;
+  font-size: 15px;
+}
+
+.btn-primary-small {
+  background: #2563EB;
+  color: white;
+}
+
+.btn-secondary-small {
+  background: #f1f5f9;
+  color: #0B1F3B;
+  border: 1px solid #e2e8f0;
 }
 
 /* Footer */
@@ -175,5 +232,15 @@ footer {
   background: #0B1F3B;
   color: white;
   text-align: center;
-  padding: 40px 20px;
+  padding: 2rem 1rem;
+  margin-top: 40px;
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 34px; }
+  .hero { padding: 80px 5% 60px; min-height: auto; }
+  .hero-buttons { flex-direction: column; align-items: center; }
+  .btn { width: 100%; max-width: 300px; }
+  .car-grid { grid-template-columns: 1fr; gap: 20px; padding: 0 5% 40px; }
 }
