@@ -1,4 +1,4 @@
-// script.js - Mixam's Autos
+// script.js - Mixam's Autos - Swipeable Gallery
 const cars = [
   {
     make: "Ford",
@@ -66,7 +66,10 @@ Reliable truck with strong engine and proven durability.`,
   }
 ];
 
-// Render cars to grid
+let currentCar = null;
+let currentImageIndex = 0;
+
+// Render inventory grid
 function renderCars(carList) {
   const carGrid = document.getElementById('carGrid');
   if (!carGrid) return;
@@ -76,8 +79,7 @@ function renderCars(carList) {
     const card = document.createElement('div');
     card.className = 'car-card';
     card.innerHTML = `
-      <img src="${car.img}" alt="${car.year} ${car.model}" 
-           onerror="this.src='https://via.placeholder.com/320x200?text=No+Image';">
+      <img src="${car.img}" alt="${car.year} ${car.model}" onerror="this.src='https://via.placeholder.com/320x200?text=No+Image';">
       <div class="car-info">
         <h3>${car.year} ${car.model}</h3>
         <p class="price">${car.priceDisplay}</p>
@@ -93,64 +95,130 @@ function renderCars(carList) {
     carGrid.appendChild(card);
   });
 
-  // View Details buttons
   document.querySelectorAll('.view-details').forEach(btn => {
     btn.addEventListener('click', () => {
       const idx = parseInt(btn.getAttribute('data-index'));
-      showCarModal(carList[idx]);
+      currentCar = carList[idx];
+      currentImageIndex = 0;
+      showCarModal();
     });
   });
 }
 
-// Modal with full details + contact buttons
-function showCarModal(car) {
+// Show swipeable modal
+function showCarModal() {
+  if (!currentCar) return;
+
   let modal = document.getElementById('carModal');
   if (!modal) {
     modal = document.createElement('div');
     modal.id = 'carModal';
-    modal.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);display:flex;align-items:center;justify-content:center;z-index:2000;padding:15px;overflow-y:auto;`;
+    modal.style.cssText = `position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.92);display:flex;align-items:center;justify-content:center;z-index:2000;padding:10px;box-sizing:border-box;`;
     document.body.appendChild(modal);
   }
 
   modal.innerHTML = `
-    <div style="background:#fff;max-width:560px;width:100%;border-radius:16px;overflow:hidden;max-height:92vh;display:flex;flex-direction:column;">
-      <div style="position:relative;">
-        <img id="modalMainImg" src="${car.img}" style="width:100%;height:260px;object-fit:cover;">
-        <button onclick="closeModal()" style="position:absolute;top:12px;right:12px;background:rgba(0,0,0,0.7);color:#fff;border:none;width:40px;height:40px;border-radius:50%;font-size:24px;cursor:pointer;">×</button>
+    <div style="background:#fff;width:100%;max-width:620px;border-radius:16px;overflow:hidden;max-height:94vh;display:flex;flex-direction:column;">
+      <!-- Image container with swipe support -->
+      <div id="imageContainer" style="position:relative;height:280px;background:#000;overflow:hidden;">
+        <img id="modalMainImg" src="${currentCar.images[currentImageIndex]}" style="width:100%;height:100%;object-fit:cover;transition:transform 0.3s ease;">
+        
+        <!-- Navigation arrows -->
+        <button onclick="prevImage()" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:44px;height:44px;border-radius:50%;font-size:24px;cursor:pointer;">‹</button>
+        <button onclick="nextImage()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:44px;height:44px;border-radius:50%;font-size:24px;cursor:pointer;">›</button>
+        
+        <!-- Counter -->
+        <div id="imageCounter" style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);background:rgba(0,0,0,0.7);color:white;padding:4px 14px;border-radius:20px;font-size:14px;">
+          ${currentImageIndex + 1} / ${currentCar.images.length}
+        </div>
       </div>
 
+      <!-- Thumbnails -->
+      <div style="display:flex;gap:8px;padding:12px 12px 8px;overflow-x:auto;background:#f8f9fa;">
+        ${currentCar.images.map((imgSrc, i) => `
+          <img src="${imgSrc}" onclick="goToImage(${i})" 
+               style="width:74px;height:56px;object-fit:cover;border-radius:6px;cursor:pointer;border:3px solid ${i === currentImageIndex ? '#2563EB' : 'transparent'};">
+        `).join('')}
+      </div>
+
+      <!-- Details -->
       <div style="padding:20px;flex:1;overflow-y:auto;">
-        <h2 style="margin:0 0 8px;">${car.year} ${car.model}</h2>
-        <p style="font-size:28px;font-weight:700;color:#2563EB;margin:8px 0;">${car.priceDisplay}</p>
+        <h2 style="margin:0 0 8px;font-size:24px;">${currentCar.year} ${currentCar.model}</h2>
+        <p style="font-size:28px;font-weight:700;color:#2563EB;margin:8px 0;">${currentCar.priceDisplay}</p>
         
-        <div style="display:flex;gap:16px;margin:16px 0;font-size:15px;color:#444;">
-          <div><strong>${car.mileage.toLocaleString()} miles</strong></div>
-          <div><strong>${car.transmission}</strong></div>
-          <div><strong>${car.color}</strong></div>
+        <div style="display:flex;gap:20px;margin:16px 0;font-size:15px;color:#555;">
+          <div><strong>${currentCar.mileage.toLocaleString()} miles</strong></div>
+          <div><strong>${currentCar.transmission}</strong></div>
+          <div><strong>${currentCar.color}</strong></div>
         </div>
 
         <div style="white-space:pre-line;line-height:1.65;color:#333;margin-bottom:30px;">
-          ${car.desc}
+          ${currentCar.desc}
         </div>
 
         <!-- Contact Buttons -->
         <div style="display:flex;flex-direction:column;gap:12px;">
-          <a href="https://wa.me/13512301881" target="_blank" 
-             style="background:#25D366;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">
-            💬 WhatsApp +1 (351) 230-1881
-          </a>
-          <a href="sms:+18167549276" target="_blank" 
-             style="background:#007AFF;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">
-            ✉️ Text +1 (816) 754-9276
-          </a>
-          <a href="mailto:mixam1autos@outlook.com?subject=Interest in 2010 Ford F-150 FX4 SuperCab 4WD" 
-             style="background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">
-            📧 Email mixam1autos@outlook.com
-          </a>
+          <a href="https://wa.me/13512301881" target="_blank" style="background:#25D366;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">💬 WhatsApp +1 (351) 230-1881</a>
+          <a href="sms:+18167549276" target="_blank" style="background:#007AFF;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">✉️ Text +1 (816) 754-9276</a>
+          <a href="mailto:mixam1autos@outlook.com?subject=Interest in 2010 Ford F-150 FX4 SuperCab 4WD" style="background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">📧 Email mixam1autos@outlook.com</a>
         </div>
       </div>
+
+      <button onclick="closeModal()" style="margin:10px auto 20px;background:#ddd;color:#333;border:none;padding:10px 30px;border-radius:999px;cursor:pointer;">Close</button>
     </div>
   `;
+
+  // Add swipe support
+  addSwipeSupport();
+}
+
+function addSwipeSupport() {
+  const container = document.getElementById('imageContainer');
+  if (!container) return;
+
+  let startX = 0;
+  let isDragging = false;
+
+  container.addEventListener('touchstart', e => {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+  });
+
+  container.addEventListener('touchend', e => {
+    if (!isDragging) return;
+    const endX = e.changedTouches[0].clientX;
+    const diff = startX - endX;
+
+    if (diff > 50) nextImage();        // swipe left
+    else if (diff < -50) prevImage();  // swipe right
+
+    isDragging = false;
+  });
+}
+
+// Navigation functions
+function prevImage() {
+  if (!currentCar) return;
+  currentImageIndex = (currentImageIndex - 1 + currentCar.images.length) % currentCar.images.length;
+  updateModalImage();
+}
+
+function nextImage() {
+  if (!currentCar) return;
+  currentImageIndex = (currentImageIndex + 1) % currentCar.images.length;
+  updateModalImage();
+}
+
+function goToImage(index) {
+  currentImageIndex = index;
+  updateModalImage();
+}
+
+function updateModalImage() {
+  const img = document.getElementById('modalMainImg');
+  const counter = document.getElementById('imageCounter');
+  if (img) img.src = currentCar.images[currentImageIndex];
+  if (counter) counter.textContent = `${currentImageIndex + 1} / ${currentCar.images.length}`;
 }
 
 function closeModal() {
@@ -158,13 +226,7 @@ function closeModal() {
   if (modal) modal.remove();
 }
 
-// Switch image in modal (optional)
-function switchModalImage(src) {
-  const img = document.getElementById('modalMainImg');
-  if (img) img.src = src;
-}
-
-// Sort function
+// Sort + initial render
 function sortCars() {
   const value = document.getElementById('sortSelect').value;
   let sorted = [...cars];
@@ -174,9 +236,8 @@ function sortCars() {
   renderCars(sorted);
 }
 
-// Initialize
 document.addEventListener('DOMContentLoaded', () => {
   const sortSelect = document.getElementById('sortSelect');
   if (sortSelect) sortSelect.addEventListener('change', sortCars);
-  renderCars(cars);   // Pre-render so it's ready when inventory shows
+  renderCars(cars);
 });
