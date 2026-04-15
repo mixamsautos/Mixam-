@@ -123,7 +123,7 @@
       <!-- Continue to Payment -->
       <button type="button" id="continueBtn" class="btn">Continue to Payment</button>
 
-      <!-- Payment Section (hidden until Continue is clicked) -->
+      <!-- Payment Section (hidden until Continue clicked) -->
       <div id="paymentSection" class="payment-section">
         <h3>Reservation Fee</h3>
         <p style="margin-bottom:20px;color:#333;">
@@ -148,6 +148,7 @@
   </div>
 
   <script>
+    // Show payment section only after agreements are checked
     document.getElementById('continueBtn').addEventListener('click', function() {
       const feeCheck = document.getElementById('feeCheck').checked;
       const contactCheck = document.getElementById('contactCheck').checked;
@@ -157,11 +158,12 @@
         return;
       }
 
+      // Hide Continue button and show payment section
       document.getElementById('continueBtn').style.display = 'none';
       document.getElementById('paymentSection').style.display = 'block';
     });
 
-    // Optional: After payment, user can submit the form
+    // Submit the form after payment
     document.getElementById('submitAfterPay').addEventListener('click', function() {
       document.getElementById('reservationForm').submit();
     });
