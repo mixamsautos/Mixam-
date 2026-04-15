@@ -1,11 +1,11 @@
-// script.js - Clean Modal like your screenshot
+// script.js - Mixam's Autos (UK Pricing)
 const cars = [
   {
     make: "Ford",
     model: "F-150 FX4 SuperCab 4WD",
     year: 2010,
-    price: 7500,
-    priceDisplay: "$7,500",
+    price: 7500,                    // number used for sorting
+    priceDisplay: "£7,500",         // displayed with £ symbol
     mileage: 92707,
     mileageUnit: "miles",
     color: "Red",
@@ -18,14 +18,14 @@ const cars = [
     desc: `Strong and dependable 4WD pickup with powerful V8 engine ✔️ Great for work, towing, or daily driving with solid performance.
 
 Key Details
-• Price: $7,500
+• Price: £7,500
 • Mileage: 92,707 miles
 • Drivetrain: 4WD
 • Engine: 320 hp 5.4L V8 Flex Fuel
 • Transmission: Automatic
 • Fuel type: Flex Fuel
-• Exterior color: Red
-• Interior color: Black
+• Exterior colour: Red
+• Interior colour: Black
 
 Vehicle Overview
 • Make: Ford
@@ -54,8 +54,8 @@ History
 • 4 previous owners
 
 Finance Option Available
-• Down payment: $750
-• Estimated monthly payment: $174
+• Deposit: £750
+• Estimated monthly payment: £174
 
 Reliable truck with strong engine and proven durability.`,
     img: "IMG_1663.jpeg",
@@ -105,7 +105,7 @@ function renderCars(carList) {
   });
 }
 
-// Clean modal like your screenshot
+// Clean modal with UK £ and swipeable gallery
 function showCarModal() {
   if (!currentCar) return;
 
@@ -120,7 +120,7 @@ function showCarModal() {
   modal.innerHTML = `
     <div style="background:#fff;width:100%;max-width:620px;border-radius:16px;overflow:hidden;max-height:96vh;display:flex;flex-direction:column;">
       
-      <!-- Main Image + Counter -->
+      <!-- Main Image -->
       <div style="position:relative;height:280px;background:#000;">
         <img id="modalMainImg" src="${currentCar.images[currentImageIndex]}" style="width:100%;height:100%;object-fit:cover;">
         
@@ -129,7 +129,6 @@ function showCarModal() {
           ${currentImageIndex + 1} / ${currentCar.images.length}
         </div>
         
-        <!-- Arrows -->
         <button onclick="prevImage()" style="position:absolute;left:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:44px;height:44px;border-radius:50%;font-size:28px;">‹</button>
         <button onclick="nextImage()" style="position:absolute;right:12px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.6);color:white;border:none;width:44px;height:44px;border-radius:50%;font-size:28px;">›</button>
       </div>
@@ -144,13 +143,13 @@ function showCarModal() {
 
       <!-- Content -->
       <div style="padding:20px 20px 30px;flex:1;overflow-y:auto;">
-        <h2 style="font-size:26px;line-height:1.2;margin:0 0 12px;">2010 F-150 FX4 SuperCab 4WD</h2>
-        <p style="font-size:32px;font-weight:700;color:#2563EB;margin:8px 0;">$7,500</p>
+        <h2 style="font-size:26px;line-height:1.2;margin:0 0 12px;">${currentCar.year} ${currentCar.model}</h2>
+        <p style="font-size:32px;font-weight:700;color:#2563EB;margin:8px 0;">${currentCar.priceDisplay}</p>
         
         <div style="display:flex;gap:20px;margin:16px 0 24px;font-size:15.5px;color:#444;">
-          <div><strong>92,707 miles</strong></div>
-          <div><strong>Automatic</strong></div>
-          <div><strong>Red</strong></div>
+          <div><strong>${currentCar.mileage.toLocaleString()} miles</strong></div>
+          <div><strong>${currentCar.transmission}</strong></div>
+          <div><strong>${currentCar.color}</strong></div>
         </div>
 
         <p style="line-height:1.65;color:#333;margin-bottom:28px;">
@@ -159,8 +158,8 @@ function showCarModal() {
 
         <div style="margin-bottom:24px;">
           <strong>Key Details</strong><br><br>
-          • Price: $7,500<br>
-          • Mileage: 92,707 miles<br>
+          • Price: ${currentCar.priceDisplay}<br>
+          • Mileage: ${currentCar.mileage.toLocaleString()} miles<br>
           • Drivetrain: 4WD<br>
           • Engine: 320 hp 5.4L V8 Flex Fuel<br>
           • Transmission: Automatic
@@ -184,7 +183,6 @@ function showCarModal() {
 function addSwipeSupport() {
   const container = document.getElementById('modalMainImg');
   if (!container) return;
-
   let startX = 0;
   container.addEventListener('touchstart', e => { startX = e.touches[0].clientX; });
   container.addEventListener('touchend', e => {
@@ -223,7 +221,7 @@ function closeModal() {
   if (modal) modal.remove();
 }
 
-// Sort & init
+// Sort function
 function sortCars() {
   const value = document.getElementById('sortSelect').value;
   let sorted = [...cars];
@@ -233,6 +231,7 @@ function sortCars() {
   renderCars(sorted);
 }
 
+// Initialize
 document.addEventListener('DOMContentLoaded', () => {
   const sortSelect = document.getElementById('sortSelect');
   if (sortSelect) sortSelect.addEventListener('change', sortCars);
