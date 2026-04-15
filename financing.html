@@ -146,14 +146,15 @@
         <input type="text" name="other_commitments" placeholder="£">
       </div>
 
-      <!-- 6. Vehicle & Deal Information -->
+      <!-- 6. Vehicle & Finance Details - NOW EMPTY FOR CLIENT TO FILL -->
       <div class="form-section">
         <h3>Vehicle & Finance Details</h3>
+        
         <label>Vehicle You're Applying For</label>
-        <input type="text" name="vehicle" value="2010 Ford F-150 FX4 SuperCab 4WD" readonly>
+        <input type="text" name="vehicle" placeholder="e.g. 2010 Ford F-150 FX4 SuperCab 4WD" required>
 
         <label>Price of Vehicle</label>
-        <input type="text" name="vehicle_price" value="£7,500" readonly>
+        <input type="text" name="vehicle_price" placeholder="£" required>
 
         <label>Deposit Amount</label>
         <input type="text" name="deposit" placeholder="£">
@@ -162,7 +163,7 @@
         <input type="text" name="monthly_budget" placeholder="£">
 
         <label>Preferred Finance Term</label>
-        <select name="finance_term">
+        <select name="finance_term" required>
           <option value="">Select...</option>
           <option value="12 months">12 months</option>
           <option value="24 months">24 months</option>
