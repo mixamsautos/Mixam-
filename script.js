@@ -166,8 +166,7 @@ function showCarModal() {
         </div>
 
         <!-- Contact Buttons -->
-        <div style="display:flex;flex-direction:column;gap:14px;">
-          <a href="https://wa.me/13512301881" target="_blank" style="background:#25D366;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">💬 WhatsApp +1 (351) 230-1881</a>
+        <div style="display:flex;flex-direction:column;gap:14px;"
           <a href="sms:+18167549276" target="_blank" style="background:#007AFF;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">✉️ Text +1 (816) 754-9276</a>
           <a href="mailto:mixam1autos@outlook.com?subject=Interest in 2010 Ford F-150 FX4 SuperCab 4WD" style="background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;">📧 Email mixam1autos@outlook.com</a>
         </div>
