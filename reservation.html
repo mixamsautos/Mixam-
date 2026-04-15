@@ -3,161 +3,115 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Reserve Vehicle - Mixam's Autos</title>
+  <title>Reserve a Vehicle - Mixam's Autos </title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #f8f9fa;
+      color: #1C1C1C;
+      line-height: 1.6;
+    }
     .reservation-page {
-      max-width: 680px;
+      max-width: 620px;
       margin: 40px auto;
-      padding: 40px 30px;
+      padding: 40px 20px;
       background: white;
       border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
-    h1 {
-      text-align: center;
-      color: #0B1F3B;
-      margin-bottom: 8px;
-    }
-    .subtitle {
-      text-align: center;
-      color: #6B7280;
-      margin-bottom: 30px;
-      font-size: 17px;
-    }
-    .form-group {
-      margin-bottom: 22px;
-    }
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-      color: #1C1C1C;
-    }
+    h1 { text-align: center; margin-bottom: 10px; color: #0B1F3B; }
+    .subtitle { text-align: center; color: #555; margin-bottom: 40px; }
+    .form-section { margin-bottom: 35px; }
+    .form-section h3 { margin-bottom: 18px; color: #0B1F3B; border-bottom: 2px solid #E5E7EB; padding-bottom: 10px; }
+    label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14.5px; }
     input, select, textarea {
       width: 100%;
-      padding: 14px 16px;
+      padding: 12px 16px;
       border: 1px solid #D1D5DB;
       border-radius: 8px;
       font-size: 16px;
+      margin-bottom: 16px;
     }
-    textarea {
-      height: 110px;
-      resize: vertical;
-    }
-    .fee-box {
-      background: #F7F8FA;
-      padding: 25px;
-      border-radius: 12px;
-      margin: 30px 0;
-      text-align: center;
-      display: none; /* hidden until Continue is clicked */
-    }
-    .fee-amount {
-      font-size: 32px;
-      font-weight: 700;
-      color: #0B1F3B;
-    }
-    .checkbox-group {
-      margin: 25px 0;
-      padding: 15px;
-      background: #F7F8FA;
-      border-radius: 8px;
-    }
-    .checkbox-group label {
-      display: flex;
-      align-items: flex-start;
-      gap: 12px;
-      font-size: 15px;
-      line-height: 1.5;
-      cursor: pointer;
-    }
-    .checkbox-group input[type="checkbox"] {
-      margin-top: 3px;
-      accent-color: #2D6CDF;
-      width: 18px;
-      height: 18px;
-    }
+    .checkbox-group { margin: 20px 0; }
+    .checkbox-group label { display: flex; align-items: flex-start; gap: 10px; font-weight: normal; line-height: 1.4; }
+    input[type="checkbox"] { width: auto; accent-color: #2563EB; margin-top: 4px; }
     .btn {
       width: 100%;
-      padding: 16px;
-      margin: 12px 0;
+      height: 56px;
+      background: #2563EB;
+      color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 17px;
       font-weight: 600;
       cursor: pointer;
-    }
-    .btn-primary {
-      background: #2D6CDF;
-      color: white;
-    }
-    .note {
-      text-align: center;
-      font-size: 14px;
-      color: #6B7280;
       margin-top: 20px;
+    }
+    .btn:hover { background: #1E40AF; }
+    .note {
+      font-size: 14px;
+      color: #666;
+      text-align: center;
+      margin-top: 20px;
+    }
+    @media (max-width: 600px) {
+      .reservation-page { margin: 20px 10px; padding: 25px 15px; }
     }
   </style>
 </head>
 <body>
-  <header class="header">
-    <div class="header-container">
-      <div class="logo">Mixam's Autos</div>
-    </div>
-  </header>
+  <div class="reservation-page">
+    <h1>Reserve a Vehicle</h1>
+    <p class="subtitle">Secure your chosen vehicle today with a refundable reservation fee</p>
 
-  <main class="reservation-page">
-    <h1>Reserve This Vehicle</h1>
-    <p class="subtitle">Secure this vehicle today with a $50 refundable reservation fee.</p>
-
-    <form id="reservationForm" action="https://formspree.io/f/xqegvzev" method="POST">
-
+    <form action="https://formspree.io/f/xqegvzev" method="POST">
+      
       <!-- Customer Information -->
-      <div class="form-group">
+      <div class="form-section">
+        <h3>Your Details</h3>
         <label>First Name</label>
         <input type="text" name="first_name" required>
-      </div>
-      <div class="form-group">
+
         <label>Last Name</label>
         <input type="text" name="last_name" required>
-      </div>
-      <div class="form-group">
+
         <label>Email Address</label>
-        <input type="email" name="_replyto" required>
-      </div>
-      <div class="form-group">
-        <label>Phone Number</label>
+        <input type="email" name="email" required>
+
+        <label>Mobile Number</label>
         <input type="tel" name="phone" required>
       </div>
 
       <!-- Address -->
-      <div class="form-group">
+      <div class="form-section">
+        <h3>Address</h3>
         <label>Street Address</label>
-        <input type="text" name="street_address">
+        <input type="text" name="street" required>
+
+        <label>City / Town</label>
+        <input type="text" name="city" required>
+
+        <label>Postcode</label>
+        <input type="text" name="postcode" required>
       </div>
-      <div class="form-group">
-        <label>City</label>
-        <input type="text" name="city">
-      </div>
-      <div class="form-group">
-        <label>State</label>
-        <input type="text" name="state">
-      </div>
-      <div class="form-group">
-        <label>ZIP Code</label>
-        <input type="text" name="zip_code">
+
+      <!-- Vehicle Information -->
+      <div class="form-section">
+        <h3>Vehicle You're Reserving</h3>
+        <label>Vehicle Details</label>
+        <input type="text" name="vehicle" placeholder="e.g. 2010 Ford F-150 FX4 SuperCab 4WD" required>
       </div>
 
       <!-- Appointment -->
-      <div class="form-group">
-        <label>Preferred Appointment Date</label>
-        <input type="date" name="appointment_date">
-      </div>
-      <div class="form-group">
-        <label>Preferred Appointment Time</label>
-        <select name="appointment_time">
+      <div class="form-section">
+        <h3>Preferred Appointment / Viewing</h3>
+        <label>Preferred Date</label>
+        <input type="date" name="appointment_date" required>
+
+        <label>Preferred Time</label>
+        <select name="appointment_time" required>
           <option value="">Select...</option>
           <option value="Morning">Morning (9am - 12pm)</option>
           <option value="Afternoon">Afternoon (12pm - 4pm)</option>
@@ -165,76 +119,36 @@
         </select>
       </div>
 
-      <!-- Contact Method -->
-      <div class="form-group">
-        <label>Preferred Contact Method</label>
-        <select name="contact_method">
-          <option value="">Select...</option>
-          <option value="Phone call">Phone call</option>
-          <option value="SMS text">SMS text</option>
-          <option value="WhatsApp">WhatsApp</option>
-          <option value="Email">Email</option>
-        </select>
-      </div>
+      <!-- Reservation Fee -->
+      <div class="form-section">
+        <h3>Reservation Fee</h3>
+        <p style="margin-bottom:20px;color:#333;">
+          Pay a refundable £50 reservation fee to hold this vehicle while you arrange viewing, test drive, or delivery.<br>
+          <strong>The fee is fully refundable</strong> and can be applied toward the purchase.
+        </p>
 
-      <!-- Message -->
-      <div class="form-group">
-        <label>Additional Message or Special Request (optional)</label>
-        <textarea name="message" placeholder="Any questions or preferred time?"></textarea>
+        <a href="https://flutterwave.com/pay/3pxmnfegosk0" target="_blank" 
+           style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
+          Pay £50 Reservation Fee (Secure Payment)
+        </a>
       </div>
 
       <!-- Agreements -->
-      <div class="checkbox-group">
-        <label>
-          <input type="checkbox" id="agreement1" required>
-          I understand the reservation fee is required to hold the vehicle.
-        </label>
-      </div>
-      <div class="checkbox-group">
-        <label>
-          <input type="checkbox" id="agreement2" required>
-          I agree to be contacted about this reservation.
-        </label>
+      <div class="form-section">
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="fee_agreement" required> I understand the £50 reservation fee is required to hold the vehicle and is fully refundable.</label>
+        </div>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="contact_agreement" required> I agree to be contacted by Mixam's Autos regarding this reservation.</label>
+        </div>
       </div>
 
-      <!-- Continue Button -->
-      <button type="button" id="continueBtn" class="btn btn-primary">
-        Continue
-      </button>
-
-      <!-- Payment Section (shown after Continue) -->
-      <div id="paymentSection" class="fee-box" style="display: none;">
-        <div class="fee-amount">$50</div>
-        <p><strong>Reservation Fee</strong></p>
-        <p>The $50 reservation fee holds this vehicle for you and can be applied toward the purchase price. It is fully refundable if you decide not to proceed.</p>
-
-        <a href="https://flutterwave.com/pay/3pxmnfegosk0" target="_blank" class="btn btn-primary" style="margin-top: 20px;">
-          Pay $50 Reservation Fee
-        </a>
-      </div>
+      <button type="submit" class="btn">Submit Reservation Request</button>
     </form>
 
-    <p class="note">After payment, our team will contact you shortly to confirm the reservation.</p>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Mixam's Autos. All rights reserved.</p>
-  </footer>
-
-  <script>
-    document.getElementById('continueBtn').addEventListener('click', function() {
-      const agreement1 = document.getElementById('agreement1').checked;
-      const agreement2 = document.getElementById('agreement2').checked;
-
-      if (!agreement1 || !agreement2) {
-        alert("Please check both agreement boxes before continuing.");
-        return;
-      }
-
-      // Show payment section and hide Continue button
-      document.getElementById('paymentSection').style.display = 'block';
-      this.style.display = 'none';
-    });
-  </script>
+    <p class="note">
+      After payment, please return here and submit the form, or email us the transaction reference at mixam1autos@outlook.com for confirmation.
+    </p>
+  </div>
 </body>
 </html>
