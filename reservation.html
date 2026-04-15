@@ -7,12 +7,7 @@
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: #f8f9fa;
-      color: #1C1C1C;
-      line-height: 1.6;
-    }
+    body { font-family: 'Poppins', sans-serif; background: #f8f9fa; color: #1C1C1C; line-height: 1.6; }
     .reservation-page {
       max-width: 620px;
       margin: 40px auto;
@@ -22,7 +17,7 @@
       box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
     h1 { text-align: center; margin-bottom: 10px; color: #0B1F3B; }
-    .subtitle { text-align: center; color: #555; margin-bottom: 40px; }
+    .subtitle { text-align: center; color: #555; margin-bottom: 30px; }
     .form-section { margin-bottom: 35px; }
     .form-section h3 { margin-bottom: 18px; color: #0B1F3B; border-bottom: 2px solid #E5E7EB; padding-bottom: 10px; }
     label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14.5px; }
@@ -50,12 +45,8 @@
       margin-top: 20px;
     }
     .btn:hover { background: #1E40AF; }
-    .note {
-      font-size: 14px;
-      color: #666;
-      text-align: center;
-      margin-top: 20px;
-    }
+    .payment-section { display: none; margin-top: 30px; padding-top: 20px; border-top: 1px solid #eee; }
+    .note { font-size: 14px; color: #666; text-align: center; margin-top: 25px; }
     @media (max-width: 600px) {
       .reservation-page { margin: 20px 10px; padding: 25px 15px; }
     }
@@ -64,11 +55,11 @@
 <body>
   <div class="reservation-page">
     <h1>Reserve a Vehicle</h1>
-    <p class="subtitle">Secure your chosen vehicle today with a refundable reservation fee</p>
+    <p class="subtitle">Secure your chosen vehicle with a refundable £50 fee</p>
 
-    <form action="https://formspree.io/f/xqegvzev" method="POST">
+    <form id="reservationForm" action="https://formspree.io/f/xqegvzev" method="POST">
       
-      <!-- Customer Information -->
+      <!-- Customer Details -->
       <div class="form-section">
         <h3>Your Details</h3>
         <label>First Name</label>
@@ -97,7 +88,7 @@
         <input type="text" name="postcode" required>
       </div>
 
-      <!-- Vehicle Information -->
+      <!-- Vehicle -->
       <div class="form-section">
         <h3>Vehicle You're Reserving</h3>
         <label>Vehicle Details</label>
@@ -106,50 +97,74 @@
 
       <!-- Appointment -->
       <div class="form-section">
-        <h3>Preferred Appointment / Viewing</h3>
+        <h3>Preferred Appointment</h3>
         <label>Preferred Date</label>
         <input type="date" name="appointment_date" required>
 
         <label>Preferred Time</label>
         <select name="appointment_time" required>
           <option value="">Select...</option>
-          <option value="Morning">Morning (9am - 12pm)</option>
-          <option value="Afternoon">Afternoon (12pm - 4pm)</option>
-          <option value="Evening">Evening (4pm - 7pm)</option>
+          <option value="Morning">Morning (9am–12pm)</option>
+          <option value="Afternoon">Afternoon (12pm–4pm)</option>
+          <option value="Evening">Evening (4pm–7pm)</option>
         </select>
-      </div>
-
-      <!-- Reservation Fee -->
-      <div class="form-section">
-        <h3>Reservation Fee</h3>
-        <p style="margin-bottom:20px;color:#333;">
-          Pay a refundable £50 reservation fee to hold this vehicle while you arrange viewing, test drive, or delivery.<br>
-          <strong>The fee is fully refundable</strong> and can be applied toward the purchase.
-        </p>
-
-        <!-- Updated Flutterwave link -->
-        <a href="https://flutterwave.com/pay/99szh63lt2qw" target="_blank" 
-           style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
-          Pay £50 Reservation Fee (Secure Payment)
-        </a>
       </div>
 
       <!-- Agreements -->
       <div class="form-section">
         <div class="checkbox-group">
-          <label><input type="checkbox" name="fee_agreement" required> I understand the £50 reservation fee is required to hold the vehicle and is fully refundable.</label>
+          <label><input type="checkbox" id="feeCheck" required> I understand the £50 reservation fee is required to hold the vehicle and is fully refundable.</label>
         </div>
         <div class="checkbox-group">
-          <label><input type="checkbox" name="contact_agreement" required> I agree to be contacted by Mixam's Autos regarding this reservation.</label>
+          <label><input type="checkbox" id="contactCheck" required> I agree to be contacted by Mixam's Autos regarding this reservation.</label>
         </div>
       </div>
 
-      <button type="submit" class="btn">Submit Reservation Request</button>
+      <!-- Continue to Payment -->
+      <button type="button" id="continueBtn" class="btn">Continue to Payment</button>
+
+      <!-- Payment Section (hidden until Continue is clicked) -->
+      <div id="paymentSection" class="payment-section">
+        <h3>Reservation Fee</h3>
+        <p style="margin-bottom:20px;color:#333;">
+          Pay a refundable £50 reservation fee to hold this vehicle.<br>
+          <strong>The fee is fully refundable</strong> and can be applied toward the purchase.
+        </p>
+
+        <a href="https://flutterwave.com/pay/99szh63lt2qw" target="_blank" id="payBtn"
+           style="display:block;background:#2563EB;color:white;padding:16px;border-radius:12px;text-align:center;font-weight:600;text-decoration:none;margin:20px 0;">
+          Pay £50 Reservation Fee (Secure Payment)
+        </a>
+
+        <button type="submit" id="submitAfterPay" class="btn" style="background:#1E40AF;">
+          I Have Paid – Submit Reservation Request
+        </button>
+      </div>
     </form>
 
     <p class="note">
-      After payment, please return here and submit the form, or email us the transaction reference at mixam1autos@outlook.com for confirmation.
+      After payment, please return here and click "I Have Paid – Submit Reservation Request", or email us the transaction reference at mixam1autos@outlook.com.
     </p>
   </div>
+
+  <script>
+    document.getElementById('continueBtn').addEventListener('click', function() {
+      const feeCheck = document.getElementById('feeCheck').checked;
+      const contactCheck = document.getElementById('contactCheck').checked;
+
+      if (!feeCheck || !contactCheck) {
+        alert("Please tick both agreement boxes before continuing.");
+        return;
+      }
+
+      document.getElementById('continueBtn').style.display = 'none';
+      document.getElementById('paymentSection').style.display = 'block';
+    });
+
+    // Optional: After payment, user can submit the form
+    document.getElementById('submitAfterPay').addEventListener('click', function() {
+      document.getElementById('reservationForm').submit();
+    });
+  </script>
 </body>
 </html>
