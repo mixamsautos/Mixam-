@@ -3,242 +3,191 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Apply for Financing - Mixam's Autos</title>
+  <title>Apply for Car Finance - Mixam's Autos (UK)</title>
   <link rel="stylesheet" href="style.css"/>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet"/>
   <style>
-    .financing-page {
+    body { font-family: 'Poppins', sans-serif; background: #f8f9fa; color: #1C1C1C; line-height: 1.6; }
+    .finance-page {
       max-width: 720px;
       margin: 40px auto;
-      padding: 40px 30px;
+      padding: 40px 20px;
       background: white;
       border-radius: 12px;
-      box-shadow: 0 10px 40px rgba(0,0,0,0.08);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     }
-    h1 {
-      text-align: center;
-      color: #0B1F3B;
-      margin-bottom: 8px;
-    }
-    .subtitle {
-      text-align: center;
-      color: #6B7280;
-      margin-bottom: 30px;
-      font-size: 17px;
-    }
-    .form-group {
-      margin-bottom: 22px;
-    }
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-      color: #1C1C1C;
-    }
+    h1 { text-align: center; margin-bottom: 10px; color: #0B1F3B; }
+    .subtitle { text-align: center; color: #555; margin-bottom: 40px; }
+    .form-section { margin-bottom: 40px; }
+    .form-section h3 { margin-bottom: 20px; color: #0B1F3B; border-bottom: 2px solid #E5E7EB; padding-bottom: 10px; }
+    label { display: block; margin-bottom: 8px; font-weight: 500; font-size: 14.5px; }
     input, select, textarea {
       width: 100%;
-      padding: 14px 16px;
+      padding: 12px 16px;
       border: 1px solid #D1D5DB;
       border-radius: 8px;
       font-size: 16px;
+      margin-bottom: 16px;
     }
-    .checkbox-group {
-      margin: 25px 0;
-      padding: 18px;
-      background: #F7F8FA;
-      border-radius: 10px;
-      border: 1px solid #E5E7EB;
-    }
-    .checkbox-group label {
-      display: flex;
-      align-items: flex-start;
-      gap: 14px;
-      font-size: 15.5px;
-      line-height: 1.5;
-      cursor: pointer;
-      color: #1C1C1C;
-    }
-    .checkbox-group input[type="checkbox"] {
-      margin-top: 4px;
-      width: 22px;
-      height: 22px;
-      accent-color: #2D6CDF;
-      flex-shrink: 0;
-    }
+    .checkbox-group { margin: 20px 0; }
+    .checkbox-group label { display: flex; align-items: flex-start; gap: 10px; font-weight: normal; line-height: 1.4; }
+    input[type="checkbox"] { width: auto; accent-color: #2563EB; margin-top: 4px; }
     .btn {
       width: 100%;
-      padding: 16px;
-      margin: 25px 0 10px;
+      height: 56px;
+      background: #2563EB;
+      color: white;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       font-size: 17px;
       font-weight: 600;
-      background: #2D6CDF;
-      color: white;
       cursor: pointer;
+      margin-top: 20px;
     }
-    .note {
-      text-align: center;
-      font-size: 14px;
-      color: #6B7280;
+    .btn:hover { background: #1E40AF; }
+    @media (max-width: 600px) {
+      .finance-page { margin: 20px 10px; padding: 25px 15px; }
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>Mixam's Autos</h1>
-  </header>
-  <main class="financing-page">
-    <h1>Apply for Financing</h1>
-    <p class="subtitle">Tell us a little about yourself so we can help you get approved quickly.</p>
+  <div class="finance-page">
+    <h1>Apply for Car Finance</h1>
+    <p class="subtitle">UK Car Finance Application – Simple & Secure</p>
 
     <form action="https://formspree.io/f/xqegvzev" method="POST">
+      
+      <!-- 1. Personal Details -->
+      <div class="form-section">
+        <h3>Personal Details</h3>
+        <label>Full Name</label>
+        <input type="text" name="full_name" required>
 
-      <!-- 1. Personal Information -->
-      <div class="form-group">
-        <label>First Name</label>
-        <input type="text" name="first_name" required>
-      </div>
-      <div class="form-group">
-        <label>Last Name</label>
-        <input type="text" name="last_name" required>
-      </div>
-      <div class="form-group">
         <label>Date of Birth</label>
-        <input type="date" name="date_of_birth" required>
+        <input type="date" name="dob" required>
+
+        <label>Nationality</label>
+        <input type="text" name="nationality" value="British" required>
+
+        <label>Marital Status (optional)</label>
+        <select name="marital_status">
+          <option value="">Select...</option>
+          <option value="Single">Single</option>
+          <option value="Married">Married</option>
+          <option value="Divorced">Divorced</option>
+          <option value="Widowed">Widowed</option>
+        </select>
+
+        <label>Number of Dependants (optional)</label>
+        <input type="number" name="dependants" min="0">
       </div>
-      <div class="form-group">
+
+      <!-- 2. Address Details -->
+      <div class="form-section">
+        <h3>Address Details</h3>
+        <label>Current Address</label>
+        <input type="text" name="current_address" required>
+
+        <label>Postcode</label>
+        <input type="text" name="postcode" required>
+
+        <label>How long at current address? (years/months)</label>
+        <input type="text" name="time_at_address" placeholder="e.g. 2 years 6 months" required>
+
+        <label>Previous Address (if less than 3 years at current address)</label>
+        <input type="text" name="previous_address">
+      </div>
+
+      <!-- 3. Contact Details -->
+      <div class="form-section">
+        <h3>Contact Details</h3>
+        <label>Mobile Number</label>
+        <input type="tel" name="mobile" required>
+
         <label>Email Address</label>
-        <input type="email" name="_replyto" required>
-      </div>
-      <div class="form-group">
-        <label>Phone Number</label>
-        <input type="tel" name="phone" required>
+        <input type="email" name="email" required>
       </div>
 
-      <!-- 2. Address Information -->
-      <div class="form-group">
-        <label>Street Address</label>
-        <input type="text" name="street_address">
-      </div>
-      <div class="form-group">
-        <label>City</label>
-        <input type="text" name="city">
-      </div>
-      <div class="form-group">
-        <label>State</label>
-        <input type="text" name="state">
-      </div>
-      <div class="form-group">
-        <label>ZIP Code</label>
-        <input type="text" name="zip_code">
-      </div>
-      <div class="form-group">
-        <label>Time at Current Address (years/months)</label>
-        <input type="text" name="time_at_address" placeholder="e.g. 3 years">
-      </div>
-
-      <!-- 3. Employment Information -->
-      <div class="form-group">
+      <!-- 4. Employment Details -->
+      <div class="form-section">
+        <h3>Employment Details</h3>
         <label>Employment Status</label>
         <select name="employment_status" required>
           <option value="">Select...</option>
-          <option value="Full-time">Employed full-time</option>
-          <option value="Part-time">Employed part-time</option>
-          <option value="Self-employed">Self-employed</option>
-          <option value="Business owner">Business owner</option>
-          <option value="Retired">Retired</option>
-          <option value="Student">Student</option>
+          <option value="Employed Full Time">Employed Full Time</option>
+          <option value="Employed Part Time">Employed Part Time</option>
+          <option value="Self Employed">Self Employed</option>
           <option value="Unemployed">Unemployed</option>
+          <option value="Student">Student</option>
+          <option value="Retired">Retired</option>
+          <option value="On Benefits">On Benefits</option>
         </select>
-      </div>
-      <div class="form-group">
-        <label>Employer Name</label>
-        <input type="text" name="employer_name">
-      </div>
-      <div class="form-group">
+
         <label>Job Title</label>
         <input type="text" name="job_title">
-      </div>
-      <div class="form-group">
-        <label>Time at Job</label>
-        <input type="text" name="time_at_job" placeholder="e.g. 2 years">
-      </div>
-      <div class="form-group">
-        <label>Monthly Income (before tax)</label>
-        <input type="number" name="monthly_income" placeholder="e.g. 4500">
-      </div>
-      <div class="form-group">
-        <label>Other Income Source (optional)</label>
-        <input type="text" name="other_income">
+
+        <label>Employer Name</label>
+        <input type="text" name="employer_name">
+
+        <label>Time in Current Job</label>
+        <input type="text" name="time_in_job" placeholder="e.g. 18 months">
+
+        <label>Monthly Income (Net / After Tax)</label>
+        <input type="text" name="monthly_income" placeholder="£" required>
       </div>
 
-      <!-- 4. Finance Preferences -->
-      <div class="form-group">
-        <label>Desired Monthly Payment Budget</label>
-        <input type="number" name="monthly_budget" placeholder="e.g. 400">
+      <!-- 5. Financial Information -->
+      <div class="form-section">
+        <h3>Financial Information</h3>
+        <label>Monthly Rent or Mortgage Payment</label>
+        <input type="text" name="monthly_rent_mortgage" placeholder="£">
+
+        <label>Other Monthly Commitments (loans, credit cards, etc.)</label>
+        <input type="text" name="other_commitments" placeholder="£">
       </div>
-      <div class="form-group">
-        <label>Down Payment Amount</label>
-        <input type="number" name="down_payment" placeholder="e.g. 2000">
-      </div>
-      <div class="form-group">
-        <label>Desired Vehicle (optional)</label>
-        <input type="text" name="desired_vehicle" placeholder="e.g. 2013 Ford F-150">
-      </div>
-      <div class="form-group">
-        <label>Loan Term Preference</label>
-        <select name="loan_term">
+
+      <!-- 6. Vehicle & Deal Information -->
+      <div class="form-section">
+        <h3>Vehicle & Finance Details</h3>
+        <label>Vehicle You're Applying For</label>
+        <input type="text" name="vehicle" value="2010 Ford F-150 FX4 SuperCab 4WD" readonly>
+
+        <label>Price of Vehicle</label>
+        <input type="text" name="vehicle_price" value="£7,500" readonly>
+
+        <label>Deposit Amount</label>
+        <input type="text" name="deposit" placeholder="£">
+
+        <label>Preferred Monthly Budget</label>
+        <input type="text" name="monthly_budget" placeholder="£">
+
+        <label>Preferred Finance Term</label>
+        <select name="finance_term">
           <option value="">Select...</option>
-          <option value="24">24 months</option>
-          <option value="36">36 months</option>
-          <option value="48">48 months</option>
-          <option value="60">60 months</option>
-          <option value="72">72 months</option>
+          <option value="12 months">12 months</option>
+          <option value="24 months">24 months</option>
+          <option value="36 months">36 months</option>
+          <option value="48 months">48 months</option>
+          <option value="60 months">60 months</option>
         </select>
       </div>
 
-      <!-- 5. Credit Profile -->
-      <div class="form-group">
-        <label>Credit Score Range (optional)</label>
-        <select name="credit_score">
-          <option value="">Select...</option>
-          <option value="Excellent">Excellent (720+)</option>
-          <option value="Good">Good (660–719)</option>
-          <option value="Fair">Fair (600–659)</option>
-          <option value="Poor">Poor (below 600)</option>
-          <option value="Not sure">Not sure</option>
-        </select>
+      <!-- 7. Consent & Declarations -->
+      <div class="form-section">
+        <h3>Consent & Declarations</h3>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="credit_check" required> I authorise a credit check to be performed (soft or hard search as required).</label>
+        </div>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="gdpr" required> I consent to my data being processed in accordance with GDPR and the Privacy Policy.</label>
+        </div>
+        <div class="checkbox-group">
+          <label><input type="checkbox" name="info_correct" required> I confirm that the information provided is accurate and complete.</label>
+        </div>
       </div>
 
-      <!-- 6. Identification -->
-      <div class="form-group">
-        <label>Driver’s License Number (optional)</label>
-        <input type="text" name="drivers_license">
-      </div>
-
-      <!-- 7. Agreements - Improved visibility -->
-      <div class="checkbox-group">
-        <label>
-          <input type="checkbox" name="agreement_contact" required>
-          I agree to be contacted regarding my financing request.
-        </label>
-      </div>
-      <div class="checkbox-group">
-        <label>
-          <input type="checkbox" name="agreement_accuracy" required>
-          I confirm the information provided is accurate.
-        </label>
-      </div>
-
-      <button type="submit" class="btn">Apply for Financing</button>
+      <button type="submit" class="btn">Submit Finance Application</button>
     </form>
-
-    <p class="note">Our team will review your application and contact you shortly.</p>
-  </main>
-
-  <footer>
-    <p>&copy; 2025 Mixam's Autos. All rights reserved. | Contact: mixam1autos@outlook.com</p>
-  </footer>
+  </div>
 </body>
 </html>
